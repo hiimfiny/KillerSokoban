@@ -16,7 +16,7 @@ public class Pillar implements Thing
     }
     
     public void PushedBy(Worker w, Field f, Direction d) {
-    	if(w.GetSelected()) {
+    	if(w==Game.GetActualWorker()) {
     		return;
     	}
     	else {

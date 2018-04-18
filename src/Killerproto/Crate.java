@@ -20,8 +20,11 @@ public class Crate implements Thing
     	f.Accept(this,d);    	
     }
     public void PushedBy(Worker w, Field f, Direction d) {
-    	if(w.GetPower()>weight) {
+    	//Ellenõrizzük, hogy a munkásnak van e ereje eltolni a ládát.
+    	if(Game.GetActualWorker().GetPower()>weight) {
     		f.Accept(this, d);
+    		//Csökken a munkás ereje a láda súlyával.
+    		Game.GetActualWorker().DecreasePower(weight);
     	}
     	else {
     		return;

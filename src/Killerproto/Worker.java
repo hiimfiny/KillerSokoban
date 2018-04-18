@@ -5,24 +5,24 @@ public class Worker implements Thing
 	private Field current;
     private int power;
 	private String character;
-	boolean selected;
 
 	public Worker() {
-		selected=false;
+		
 		power=4;
 	}
 	public String getChar(){return character;}
 	public void setChar(String v){this.character=v;}
-	public boolean GetSelected() {return selected;}
+	
 	
 	public int GetPower() {return power;}
+	public void DecreasePower(int d) {power-=d;}
 
     public void PushedBy(Crate c, Field f,Direction d) {
     	f.Accept(this, d);
     	
     }
     public void PushedBy(Worker w, Field f, Direction d) {
-    	if(w.selected) {
+    	if(Game.GetActualWorker()==w) {
     		return;
     	}
     	else {
@@ -35,10 +35,9 @@ public class Worker implements Thing
 		
 	}
 	@Override
-	public void Enters(Field f,Direction d) {
-		selected=true;
+	public void Enters(Field f,Direction d) {		
 		f.Accept(this, d);
-		selected=false;		
+				
 	}
 	
 	public void SetCurrent(Field f) {

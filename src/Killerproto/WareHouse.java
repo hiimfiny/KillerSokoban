@@ -12,6 +12,8 @@ public class WareHouse {
 	List<Crate> crates;
 	int size;
 	Field[][] map;
+	
+	
 
 	public int getSize() {
 		return this.size;

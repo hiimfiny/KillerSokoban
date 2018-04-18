@@ -17,6 +17,21 @@ public class Field {
     	
     }
     
+    //Negálni kell a Directiont, hogy tudjuk, melyik irányban lévõ Fieldrõl kell törölni az elemet.
+    private Direction negDirection(Direction d) {
+    	switch(d) {
+    	case Left:
+    		return Direction.Right;
+    	case Right:
+    		return Direction.Left;
+    	case Down:
+    		return Direction.Up;
+    	default:
+    		return Direction.Down;
+    		
+    	}
+    }
+    
     public void Accept(Worker w,Direction d) {
     	if(currentThing!=null) {//Ha van valami a mezõn azt meg kell próbálni továbblökni
     		currentThing.PushedBy(w, neighbors.get(d), d);
@@ -25,6 +40,11 @@ public class Field {
     		pl elvileg ha ellöktük ami rajta volt és az visszatér akkor itt mér nem lesz semmi*/
     	if(currentThing==null) {
     		currentThing=w;
+    		//A munkást töröljük az elõzõ mezõjérõl, ami az elenkezõ irányban van
+    		Field f= neighbors.get(negDirection(d));
+    		if(f!=null) {
+    			f.Remove(w);
+    		}
     	}
     }
     
@@ -36,6 +56,10 @@ public class Field {
     	
     	if(currentThing==null) {
     		currentThing=c;
+    		Field f= neighbors.get(negDirection(d));
+    		if(f!=null) {
+    			f.Remove(c);
+    		}
     		if(targetCrate==c) {
         		//A helyen van a lada juhuuu
         	}
@@ -46,10 +70,10 @@ public class Field {
     	return neighbors.get(d);
     }
     public void SetNeighnour(Direction d, Field f) {
-    	
+    	neighbors.put(d, f);
     }
     public void Remove(Thing t) {
-    	
+    	currentThing=null;
     }
     public Thing GetThing() {
     	return currentThing;

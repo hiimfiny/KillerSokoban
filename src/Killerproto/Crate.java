@@ -16,12 +16,18 @@ public class Crate implements Thing
     public void setChar(String v){this.character=v;}
 
 
-    public void PushedBy(Crate c, Field f) {
-    	
+    public void PushedBy(Crate c, Field f,Direction d) {
+    	f.Accept(this,d);    	
     }
-    public void PushedBy(Worker w, Field f) {
-    	
+    public void PushedBy(Worker w, Field f, Direction d) {
+    	if(w.GetPower()>weight) {
+    		f.Accept(this, d);
+    	}
+    	else {
+    		return;
+    	}
     }
+    
     public void ChangeWeight(StickyField sf) {
     	weight=3;
     	
@@ -31,14 +37,16 @@ public class Crate implements Thing
     	
     }
 	@Override
-	public void PushedBy(Thing t, Field f) {
-		// TODO Auto-generated method stub
+	public void PushedBy(Thing t, Field f,Direction d) {}
+	
+	@Override
+	public void Enters(Field f, Direction d) {
+		f.Accept(this, d);
 		
 	}
-	@Override
-	public void Enters(Field f) {
-		// TODO Auto-generated method stub
-		
+	
+	public void SetCurrent(Field f) {
+		current=f;
 	}
 
 

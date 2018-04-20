@@ -3,6 +3,7 @@ package Killerproto;
 import java.util.Map;
 
 
+@SuppressWarnings("ALL")
 public class Field {
 
 	protected Map<Direction,Field> neighbors;
@@ -22,7 +23,7 @@ public class Field {
     	currentThing = c;
     }
     
-    //Negálni kell a Directiont, hogy tudjuk, melyik irányban lévõ Fieldrõl kell törölni az elemet.
+    //Negï¿½lni kell a Directiont, hogy tudjuk, melyik irï¿½nyban lï¿½vï¿½ Fieldrï¿½l kell tï¿½rï¿½lni az elemet.
     protected Direction negDirection(Direction d) {
     	switch(d) {
     	case Left:
@@ -38,14 +39,14 @@ public class Field {
     }
     
     public void Accept(Worker w,Direction d) {
-    	if(currentThing!=null) {//Ha van valami a mezõn azt meg kell próbálni továbblökni
+    	if(currentThing!=null) {//Ha van valami a mezï¿½n azt meg kell prï¿½bï¿½lni tovï¿½bblï¿½kni
     		currentThing.PushedBy(w, neighbors.get(d), d);
     	}
-    	/*Ha a mezõn nincs semmi akkor a munkás ott marad
-    		pl elvileg ha ellöktük ami rajta volt és az visszatér akkor itt mér nem lesz semmi*/
+    	/*Ha a mezï¿½n nincs semmi akkor a munkï¿½s ott marad
+    		pl elvileg ha ellï¿½ktï¿½k ami rajta volt ï¿½s az visszatï¿½r akkor itt mï¿½r nem lesz semmi*/
     	if(currentThing==null) {
     		currentThing=w;
-    		//A munkást töröljük az elõzõ mezõjérõl, ami az elenkezõ irányban van
+    		//A munkï¿½st tï¿½rï¿½ljï¿½k az elï¿½zï¿½ mezï¿½jï¿½rï¿½l, ami az elenkezï¿½ irï¿½nyban van
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {
     			f.Remove(w);

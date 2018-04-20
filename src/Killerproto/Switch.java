@@ -7,13 +7,16 @@ public class Switch extends Field{
      */
 	private SecretHole secretHole;
 	
-    public void Accept(Crate c, Direction d) {
-    	
+    public void Accept(Crate c, Direction d)
+    {
+        Accept(c, d);
+        secretHole.changeToTrue();
     }
-    public void Accept(Worker w, Direction d) {
-    	
-    }
-    public void  Remove(Thing t) {
-    	
+
+    public void Remove()
+    {
+        secretHole.changeToFalse();
+        Remove();
+
     }
 }

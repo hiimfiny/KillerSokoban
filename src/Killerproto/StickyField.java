@@ -11,6 +11,7 @@ public class StickyField extends Field
     	
     	if(GetThing()==null) {
     		setCurrentThing(c);
+    		character="c";
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {
     			f.Remove(c);

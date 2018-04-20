@@ -9,7 +9,7 @@ public class Field {
 	protected Map<Direction,Field> neighbors;
 	private Thing currentThing;
 	protected Crate targetCrate;
-	private String character;
+	protected String character;
 
 	public String getChar(){return character;}
 	public void setChar(String v){this.character=v;}
@@ -23,7 +23,7 @@ public class Field {
     	currentThing = c;
     }
     
-    //Neg�lni kell a Directiont, hogy tudjuk, melyik ir�nyban l�v� Fieldr�l kell t�r�lni az elemet.
+    //Negalni kell a Directiont, hogy tudjuk, melyik iranyban levo Fieldre kell tolni az elemet.
     protected Direction negDirection(Direction d) {
     	switch(d) {
     	case Left:
@@ -39,14 +39,14 @@ public class Field {
     }
     
     public void Accept(Worker w,Direction d) {
-    	if(currentThing!=null) {//Ha van valami a mez�n azt meg kell pr�b�lni tov�bbl�kni
+    	if(currentThing!=null) {//Ha van valami a mezon azt meg kell probalni tovabb lokni
     		currentThing.PushedBy(w, neighbors.get(d), d);
     	}
-    	/*Ha a mez�n nincs semmi akkor a munk�s ott marad
-    		pl elvileg ha ell�kt�k ami rajta volt �s az visszat�r akkor itt m�r nem lesz semmi*/
+    	/*Ha a mezon nincs semmi akkor a munkas ott marad
+    		pl elvileg ha elloktuk ami rajta volt es az visszater akkor itt mar nem lesz semmi*/
     	if(currentThing==null) {
     		currentThing=w;
-    		//A munk�st t�r�lj�k az el�z� mez�j�r�l, ami az elenkez� ir�nyban van
+    		character="*";
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {
     			f.Remove(w);
@@ -62,6 +62,8 @@ public class Field {
     	
     	if(currentThing==null) {
     		currentThing=c;
+    		character="c";
+    		
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {
     			f.Remove(c);
@@ -80,6 +82,7 @@ public class Field {
     }
     public void Remove(Thing t) {
     	currentThing=null;
+    	character=".";
     }
     public Thing GetThing() {
     	return currentThing;

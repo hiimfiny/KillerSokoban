@@ -73,5 +73,6 @@ public class WareHouse {
 		WareHouse wh = new WareHouse();
 		wh.readMap("testMap1.txt");
 		wh.showMap();
+		
 	}
 }

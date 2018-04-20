@@ -75,27 +75,20 @@ public class Field {
         	}
     	}
     }
-    
-<<<<<<< HEAD
-    
+
     public  Field getNeighbour(Direction d) {
-    	return neighbors.get(d);
+        return neighbors.get(d);
     }
     public void setNeighbour(Direction d, Field f) {
-=======
-    public  Field getNeighbour(Direction d) {
-    	return neighbors.get(d);
-    }
-    public void setNeighnour(Direction d, Field f) {
->>>>>>> 39c7454615a44273fc8dca4bb6e61d264ba26b28
-    	neighbors.put(d, f);
+        neighbors.put(d, f);
     }
     public void Remove(Thing t) {
-    	character='.';
-    	currentThing=null;
+        character='.';
+        currentThing=null;
     }
     public Thing getThing() {
-    	return currentThing;
+        return currentThing;
     }
+
 
 }

@@ -9,14 +9,26 @@ public class Switch extends Field{
 	
     public void Accept(Crate c, Direction d)
     {
-        Accept(c, d);
+        if(GetThing()!=null)
+        {
+            GetThing().PushedBy(c, neighbors.get(d), d);
+        }
+
+        if(GetThing()==null) {
+            setCurrentThing(c);
+
+            Field f= neighbors.get(negDirection(d));
+            if(f!=null) {
+                f.Remove(c);
+            }
+        }
         secretHole.changeToTrue();
     }
 
     public void Remove()
     {
         secretHole.changeToFalse();
-        Remove();
+        setCurrentThing(null);
 
     }
 }

@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Game
 {
+	public static boolean end=false;
 	private WareHouse warehouse;
 	private List<Player> players; 
 	//Az a munk�s amelyik �ppen l�p
@@ -90,7 +91,11 @@ public class Game
 		/*if(wh.map[5][5].getThing()!=null)
 			wh.map[5][4].getThing().Enters(wh.map[4][4],Direction.Up);
 		if(wh.map[4][4]!=null) wh.map[4][4].getThing().Enters(wh.map[4][3], Direction.Left);*/
-		wh.showMap();
+		
+		while(!Game.end) {
+			wh.showMap();
+			wh.readCommand();
+		}
 		
 	}
 }

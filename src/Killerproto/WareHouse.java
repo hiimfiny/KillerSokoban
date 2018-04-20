@@ -1,6 +1,7 @@
 package Killerproto;
 
 import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,6 +13,9 @@ public class WareHouse {
 	List<Crate> crates;
 	int size;
 	Field[][] map;
+	
+	//A kijelolt munkas koordinataja
+	int x,y;
 
 	public int getSize() {
 		return this.size;
@@ -111,6 +115,34 @@ public class WareHouse {
 		}
 		
 	}
+	
+	public void readCommand(){
+		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		try {
+			String command=br.readLine();
+			
+			switch(command) {
+			case "moveRight":
+				map[x][y].getThing().Enters(map[x][y+1],Direction.Up);
+				break;
+			case "moveLeft":
+				map[x][y].getThing().Enters(map[x][y-1],Direction.Up);
+				break;
+			case "moveUp":
+				map[x][y].getThing().Enters(map[x-1][y],Direction.Up);
+				break;
+			case "moveDown":
+				map[x][y].getThing().Enters(map[x+1][y],Direction.Up);
+				break;
+			case "exit":
+				Game.end=true;		
+				
+			}
+			
+		}catch(Exception e) {
+			System.out.println("Andris a mapokba jelold mashogy a kijelolt munkast es tarold el az x, y koordinatajat meg mentsd el actualWorker-be :*");
+		}
+	}
 
 	
 	public void neighbors() {
@@ -125,7 +157,7 @@ public class WareHouse {
 		}
 	}
 
-
+/*
 	public static void main(String args[]){
 		WareHouse wh = new WareHouse();
 		wh.readMap("testMap1.txt");
@@ -136,5 +168,5 @@ public class WareHouse {
 		if(wh.map[4][4]!=null) wh.map[4][4].getThing().Enters(wh.map[4][3], Direction.Left);
 		wh.showMap();
 		
-	}
+	}*/
 }

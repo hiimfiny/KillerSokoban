@@ -111,6 +111,7 @@ public class WareHouse {
 		}
 		
 	}
+<<<<<<< HEAD
 	
 	public void neighbors() {
 		for(int i=1;i<size-1;i++) {
@@ -123,6 +124,8 @@ public class WareHouse {
 			
 		}
 	}
+=======
+>>>>>>> 39c7454615a44273fc8dca4bb6e61d264ba26b28
 
 
 	public static void main(String args[]){

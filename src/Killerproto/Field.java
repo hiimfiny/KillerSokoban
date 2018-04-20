@@ -17,10 +17,7 @@ public class Field {
     	
     }
     
-    public Thing getCurrentThing() {
-    	return currentThing;
-    }
-    
+        
     public void setCurrentThing(Crate c) {
     	currentThing = c;
     }

@@ -27,7 +27,7 @@ public class SecretHole extends Hole {
             }
         }
     }
-    public void accept(Worker w,Direction d)
+    public void Accept(Worker w,Direction d)
     {
         if(state)
         {

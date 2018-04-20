@@ -19,8 +19,8 @@ public class Field {
     }
     
         
-    public void setCurrentThing(Crate c) {
-    	currentThing = c;
+    public void setCurrentThing(Thing t) {
+    	currentThing = t;
     }
     
     //Neg�lni kell a Directiont, hogy tudjuk, melyik ir�nyban l�v� Fieldr�l kell t�r�lni az elemet.

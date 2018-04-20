@@ -12,10 +12,22 @@ public class SecretHole extends Hole {
         }
         else
         {
-        Accept(c,d);
+            if(GetThing()!=null)
+            {
+                GetThing().PushedBy(c, neighbors.get(d), d);
+            }
+
+            if(GetThing()==null) {
+                setCurrentThing(c);
+
+                Field f= neighbors.get(negDirection(d));
+                if(f!=null) {
+                    f.Remove(c);
+                }
+            }
         }
     }
-    public void Accept(Worker w,Direction d)
+    public void accept(Worker w,Direction d)
     {
         if(state)
         {
@@ -23,7 +35,19 @@ public class SecretHole extends Hole {
         }
         else
         {
-            Accept(w,d);
+            if(GetThing()!=null)
+            {
+                GetThing().PushedBy(w, neighbors.get(d), d);
+            }
+
+            if(GetThing()==null) {
+                setCurrentThing(w);
+
+                Field f= neighbors.get(negDirection(d));
+                if(f!=null) {
+                    f.Remove(w);
+                }
+            }
         }
     }
 
@@ -31,6 +55,10 @@ public class SecretHole extends Hole {
     {
 
         state = true;
+        if(GetThing()!=null)
+        {
+            Remove(GetThing());
+        }
 
     }
 

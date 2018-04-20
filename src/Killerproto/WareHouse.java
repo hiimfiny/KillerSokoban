@@ -26,6 +26,7 @@ public class WareHouse {
 			String line;
 			String[] values;
 			this.size = (Integer.parseInt(br.readLine()));
+			
 			//Field[][] temp = new Field[size][size];
 			this.map=new Field[7][7];
 			for(int i=0;i<7;i++){
@@ -33,14 +34,16 @@ public class WareHouse {
 					this.map[i][j]=new Field();
 				}
 			}
+			int i=0;
 			while ((line = br.readLine()) != null) {
 				values = line.split(",");
-				for (int i = 0; i < 7; i++) {
+				
 					for (int j = 0; j < 7; j++) {
 						this.map[i][j].setChar(values[j]);
 						//temp[i][j].setChar(values[j]);
 					}
-				}
+					i++;
+				
 			}
 			br.close();
 			//this.map=temp;

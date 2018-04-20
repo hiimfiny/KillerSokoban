@@ -35,41 +35,63 @@ public class WareHouse {
 			int i=0;
 			while ((line = br.readLine()) != null) {
 				values = line.split(",");
-				if(i>=size){
-					for(int j=0;j<size;j++){
-
-					}
-				}
-				for (int j = 0; j < size; j++) {
-					switch(values[j]){
-						//A sima field
-						case "1":
-							map[i][j].setChar('.');
-							break;
-						//A Slippery field
-						case "2":
-							map[i][j]=new SlipperyField();
-							map[i][j].setChar('-');
-
-							break;
-						//A Slippery field
-						case "3":
-							map[i][j]=new StickyField();
-							map[i][j].setChar('+');
-
-							break;
-						//A hole
-						case "4":
-							map[i][j]=new Hole();
-							map[i][j].setChar('o');
-							break;
-						//A secret hole
-
+				if (i >= size) {
+					for (int j = 0; j < size; j++) {
+						switch (values[j]) {
+							case "0":
+								map[i - 7][j].setCurrentThing(new Pillar());
+								break;
+							case "7":
+								map[i - 7][j].setCurrentThing(new Crate());
+								break;
+							case "8":
+								map[i - 7][j].setCurrentThing(new Worker('1'));
+								break;
+							case "9":
+								map[i - 7][j].setCurrentThing(new Worker('2'));
+								break;
+							case ".":
+								map[i - 7][j].setCurrentThing(null);
 						}
-
 					}
 					i++;
+				} else {
+					for (int j = 0; j < size; j++) {
+						switch (values[j]) {
+							//A sima field
+							case "1":
+								map[i][j].setChar('.');
+								break;
+							//A Slippery field
+							case "2":
+								map[i][j] = new SlipperyField();
+								map[i][j].setChar('-');
 
+								break;
+							//A Slippery field
+							case "3":
+								map[i][j] = new StickyField();
+								map[i][j].setChar('+');
+								break;
+							//A hole
+							case "4":
+								map[i][j] = new Hole();
+								map[i][j].setChar('o');
+								break;
+							//A secret hole
+							case "5":
+								map[i][j] = new SecretHole();
+								map[i][j].setChar(',');
+								break;
+							//A switch
+							case "6":
+								map[i][j] = new Switch();
+								map[i][j].setChar('s');
+								break;
+						}
+					}
+					i++;
+				}
 			}
 			br.close();
 		} catch (IOException e) {
@@ -80,55 +102,13 @@ public class WareHouse {
 	public void showMap() {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
-				System.out.print(map[i][j].getChar());
+				if(map[i][j].getThing()==null)
+					System.out.print(map[i][j].getChar());
+				else
+					System.out.print(map[i][j].getThing().getChar());
 			}
 			System.out.print("\n");
 		}
-	}
-
-	//Az input fájl karaktereinek dekódolása. Visszaadja azt a char-t amit meg kell jeleniteni a képernyőn
-	public char decodeMap(String s){
-		char ret = '.';
-		switch(s){
-			case "1":
-				ret='.';
-				break;
-			case "2":
-				ret='-';
-				break;
-			case "3":
-				ret='+';
-				break;
-			case "4":
-				ret='o';
-				break;
-			case "5":
-				ret='°';
-				break;
-			case "6":
-				ret='s';
-				break;
-		}
-		return ret;
-	}
-
-	public char decodeThing(String s){
-		char ret = '.';
-		switch(s){
-			case "0":
-				ret='#';
-				break;
-			case "7":
-				ret='c';
-				break;
-			case "8":
-				ret='1';
-				break;
-			case "9":
-				ret='2';
-				break;
-		}
-		return ret;
 	}
 
 

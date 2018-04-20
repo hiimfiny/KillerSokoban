@@ -72,16 +72,16 @@ public class Field {
     	}
     }
     
-    public  Field GetNeighbour(Direction d) {
+    public  Field getNeighbour(Direction d) {
     	return neighbors.get(d);
     }
-    public void SetNeighnour(Direction d, Field f) {
+    public void setNeighnour(Direction d, Field f) {
     	neighbors.put(d, f);
     }
     public void Remove(Thing t) {
     	currentThing=null;
     }
-    public Thing GetThing() {
+    public Thing getThing() {
     	return currentThing;
     }
 

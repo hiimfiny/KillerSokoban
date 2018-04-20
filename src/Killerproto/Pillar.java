@@ -3,10 +3,15 @@ package Killerproto;
 public class Pillar implements Thing
 {
 	private Field current;
-	private String character;
+	private char character;
 
-	public String getChar(){return character;}
-	public void setChar(String v){this.character=v;}
+	public Pillar(){
+		character='#';
+
+	}
+
+	public char getChar(){return character;}
+	public void setChar(char c){this.character=c;}
     public void PushedBy(Thing t, Field f, Direction d) {
     	
     }	

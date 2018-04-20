@@ -5,11 +5,11 @@ public class SlipperyField extends Field
 
     public void Accept(Crate c, Direction d) {
     	c.ChangeWeight(this);
-    	if(GetThing()!=null) {
-    		GetThing().PushedBy(c, neighbors.get(d), d);
+    	if(getThing()!=null) {
+    		getThing().PushedBy(c, neighbors.get(d), d);
     	}
     	
-    	if(GetThing()==null) {
+    	if(getThing()==null) {
     		setCurrentThing(c);
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {

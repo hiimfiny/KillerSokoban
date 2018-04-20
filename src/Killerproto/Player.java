@@ -14,7 +14,7 @@ public class Player
 
     public void Select (Worker w){};
     public Worker SelectWorker(int i){
-        Worker temp = new Worker();
+        Worker temp = new Worker('1');
         temp=workers.get(i);
         return temp;
     }

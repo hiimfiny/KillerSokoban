@@ -12,12 +12,12 @@ public class SecretHole extends Hole {
         }
         else
         {
-            if(GetThing()!=null)
+            if(getThing()!=null)
             {
-                GetThing().PushedBy(c, neighbors.get(d), d);
+                getThing().PushedBy(c, neighbors.get(d), d);
             }
 
-            if(GetThing()==null) {
+            if(getThing()==null) {
                 setCurrentThing(c);
 
                 Field f= neighbors.get(negDirection(d));
@@ -35,12 +35,12 @@ public class SecretHole extends Hole {
         }
         else
         {
-            if(GetThing()!=null)
+            if(getThing()!=null)
             {
-                GetThing().PushedBy(w, neighbors.get(d), d);
+                getThing().PushedBy(w, neighbors.get(d), d);
             }
 
-            if(GetThing()==null) {
+            if(getThing()==null) {
                 setCurrentThing(w);
 
                 Field f= neighbors.get(negDirection(d));
@@ -55,9 +55,9 @@ public class SecretHole extends Hole {
     {
 
         state = true;
-        if(GetThing()!=null)
+        if(getThing()!=null)
         {
-            Remove(GetThing());
+            Remove(getThing());
         }
 
     }

@@ -5,14 +5,15 @@ public class Crate implements Thing
 	private Field current;
     private Field target;
     private int weight;
-    private String character;
+    private char character;
 
     public Crate() {
-        weight =2;
+        character = 'c';
+    	weight =2;
     }
 
-    public String getChar(){return character;}
-    public void setChar(String v){this.character=v;}
+    public char getChar(){return character;}
+    public void setChar(char c){this.character=c;}
 
 
     public void PushedBy(Crate c, Field f,Direction d) {

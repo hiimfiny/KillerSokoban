@@ -9,10 +9,10 @@ public class Field {
 	protected Map<Direction,Field> neighbors;
 	private Thing currentThing;
 	protected Crate targetCrate;
-	private String character;
+	private char character;
 
-	public String getChar(){return character;}
-	public void setChar(String v){this.character=v;}
+	public char getChar(){return character;}
+	public void setChar(char c){this.character=c;}
 
     public void Accept(Thing t,Direction d) {
     	

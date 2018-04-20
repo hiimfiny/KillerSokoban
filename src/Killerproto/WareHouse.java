@@ -111,7 +111,6 @@ public class WareHouse {
 		}
 		
 	}
-<<<<<<< HEAD
 	
 	public void neighbors() {
 		for(int i=1;i<size-1;i++) {
@@ -124,19 +123,7 @@ public class WareHouse {
 			
 		}
 	}
-=======
->>>>>>> 39c7454615a44273fc8dca4bb6e61d264ba26b28
 
 
-	public static void main(String args[]){
-		WareHouse wh = new WareHouse();
-		wh.readMap("testMap1.txt");
-		wh.neighbors();
-		//Game.SetActualWorker(wh.map[5][5].getThing());
-		if(wh.map[5][5].getThing()!=null)
-			wh.map[5][4].getThing().Enters(wh.map[4][4],Direction.Up);
-		if(wh.map[4][4]!=null) wh.map[4][4].getThing().Enters(wh.map[4][3], Direction.Left);
-		wh.showMap();
-		
-	}
+	
 }

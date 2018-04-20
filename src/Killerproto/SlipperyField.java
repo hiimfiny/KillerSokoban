@@ -4,7 +4,7 @@ public class SlipperyField extends Field
 {
 
     public void Accept(Crate c, Direction d) {
-    	
+    	c.ChangeWeight(this);
     }
 
 }

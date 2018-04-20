@@ -5,9 +5,9 @@ import java.util.Map;
 
 public class Field {
 
-	private Map<Direction,Field> neighbors;
+	protected Map<Direction,Field> neighbors;
 	private Thing currentThing;
-	private Crate targetCrate;
+	protected Crate targetCrate;
 	private String character;
 
 	public String getChar(){return character;}
@@ -17,8 +17,16 @@ public class Field {
     	
     }
     
+    public Thing getCurrentThing() {
+    	return currentThing;
+    }
+    
+    public void setCurrentThing(Crate c) {
+    	currentThing = c;
+    }
+    
     //Negálni kell a Directiont, hogy tudjuk, melyik irányban lévõ Fieldrõl kell törölni az elemet.
-    private Direction negDirection(Direction d) {
+    protected Direction negDirection(Direction d) {
     	switch(d) {
     	case Left:
     		return Direction.Right;

@@ -4,14 +4,14 @@ public class Worker implements Thing
 {
 	private Field current;
     private int power;
-	private String character;
+	private char character;
 
-	public Worker() {
-		
+	public Worker(char c) {
+		character=c;
 		power=4;
 	}
-	public String getChar(){return character;}
-	public void setChar(String v){this.character=v;}
+	public char getChar(){return character;}
+	public void setChar(char c){this.character=c;}
 	
 	
 	public int GetPower() {return power;}

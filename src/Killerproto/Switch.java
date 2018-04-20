@@ -9,12 +9,12 @@ public class Switch extends Field{
 	
     public void Accept(Crate c, Direction d)
     {
-        if(GetThing()!=null)
+        if(getThing()!=null)
         {
-            GetThing().PushedBy(c, neighbors.get(d), d);
+            getThing().PushedBy(c, neighbors.get(d), d);
         }
 
-        if(GetThing()==null) {
+        if(getThing()==null) {
             setCurrentThing(c);
 
             Field f= neighbors.get(negDirection(d));

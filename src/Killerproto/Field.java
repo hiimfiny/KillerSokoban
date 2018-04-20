@@ -1,6 +1,6 @@
 package Killerproto;
 
-import java.util.Map;
+import java.util.*;
 
 
 @SuppressWarnings("ALL")
@@ -9,10 +9,14 @@ public class Field {
 	protected Map<Direction,Field> neighbors;
 	private Thing currentThing;
 	protected Crate targetCrate;
-	protected String character;
+	private char character;
 
-	public String getChar(){return character;}
-	public void setChar(String v){this.character=v;}
+	public char getChar(){return character;}
+	public void setChar(char c){this.character=c;}
+	
+	public Field() {
+		neighbors=new HashMap<Direction,Field>();
+	}
 
     public void Accept(Thing t,Direction d) {
     	
@@ -23,7 +27,7 @@ public class Field {
     	currentThing = t;
     }
     
-    //Negalni kell a Directiont, hogy tudjuk, melyik iranyban levo Fieldre kell tolni az elemet.
+    //Neg�lni kell a Directiont, hogy tudjuk, melyik ir�nyban l�v� Fieldr�l kell t�r�lni az elemet.
     protected Direction negDirection(Direction d) {
     	switch(d) {
     	case Left:
@@ -39,14 +43,14 @@ public class Field {
     }
     
     public void Accept(Worker w,Direction d) {
-    	if(currentThing!=null) {//Ha van valami a mezon azt meg kell probalni tovabb lokni
+    	if(currentThing!=null) {//Ha van valami a mez�n azt meg kell pr�b�lni tov�bbl�kni
     		currentThing.PushedBy(w, neighbors.get(d), d);
     	}
-    	/*Ha a mezon nincs semmi akkor a munkas ott marad
-    		pl elvileg ha elloktuk ami rajta volt es az visszater akkor itt mar nem lesz semmi*/
+    	/*Ha a mez�n nincs semmi akkor a munk�s ott marad
+    		pl elvileg ha ell�kt�k ami rajta volt �s az visszat�r akkor itt m�r nem lesz semmi*/
     	if(currentThing==null) {
     		currentThing=w;
-    		character="*";
+    		//A munk�st t�r�lj�k az el�z� mez�j�r�l, ami az elenkez� ir�nyban van
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {
     			f.Remove(w);
@@ -62,8 +66,6 @@ public class Field {
     	
     	if(currentThing==null) {
     		currentThing=c;
-    		character="c";
-    		
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {
     			f.Remove(c);
@@ -74,17 +76,18 @@ public class Field {
     	}
     }
     
-    public  Field GetNeighbour(Direction d) {
+    
+    public  Field getNeighbour(Direction d) {
     	return neighbors.get(d);
     }
-    public void SetNeighnour(Direction d, Field f) {
+    public void setNeighbour(Direction d, Field f) {
     	neighbors.put(d, f);
     }
     public void Remove(Thing t) {
+    	character='.';
     	currentThing=null;
-    	character=".";
     }
-    public Thing GetThing() {
+    public Thing getThing() {
     	return currentThing;
     }
 

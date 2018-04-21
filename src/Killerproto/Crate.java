@@ -20,11 +20,13 @@ public class Crate implements Thing
     	f.Accept(this,d);    	
     }
     public void PushedBy(Worker w, Field f, Direction d) {
+    	
     	//Ellen�rizz�k, hogy a munk�snak van e ereje eltolni a l�d�t.
-    	if(1<2) {//(Game.GetActualWorker().GetPower()>weight) {
+    	if(Game.GetActualWorker().GetPower()>weight) {
+    	//if(true) {
     		f.Accept(this, d);
     		//Cs�kken a munk�s ereje a l�da s�ly�val.
-    		Game.GetActualWorker().DecreasePower(weight);
+    	//	Game.GetActualWorker().DecreasePower(weight);
     	}
     	else {
     		return;
@@ -32,7 +34,7 @@ public class Crate implements Thing
     }
     
     public void ChangeWeight(StickyField sf) {
-    	weight=3;
+    	weight=5;
     	
     }
     public void ChangeWeight(SlipperyField sf) {
@@ -40,7 +42,8 @@ public class Crate implements Thing
     	
     }
 	@Override
-	public void PushedBy(Thing t, Field f,Direction d) {}
+	public void PushedBy(Thing t, Field f,Direction d) {
+	}
 	
 	@Override
 	public void Enters(Field f, Direction d) {
@@ -51,6 +54,8 @@ public class Crate implements Thing
 	public void SetCurrent(Field f) {
 		current=f;
 	}
+
+	
 
 
 

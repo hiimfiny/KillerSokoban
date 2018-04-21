@@ -15,7 +15,9 @@ public class WareHouse {
 	Field[][] map;
 	
 	//A kijelolt munkas koordinataja
-	int x,y;
+	static int x,y;
+	
+	
 
 	public int getSize() {
 		return this.size;
@@ -49,7 +51,11 @@ public class WareHouse {
 								map[i - 7][j].setCurrentThing(new Crate());
 								break;
 							case "8":
-								map[i - 7][j].setCurrentThing(new Worker('1'));
+								Worker w=new Worker('1');
+								Game.SetActualWorker(w);
+								map[i - 7][j].setCurrentThing(w);
+								x=i-size;
+								y=j;
 								break;
 							case "9":
 								map[i - 7][j].setCurrentThing(new Worker('2'));
@@ -123,16 +129,16 @@ public class WareHouse {
 			
 			switch(command) {
 			case "moveRight":
-				map[x][y].getThing().Enters(map[x][y+1],Direction.Up);
+				Game.GetActualWorker().Enters(map[x][y+1], Direction.Right);
 				break;
 			case "moveLeft":
-				map[x][y].getThing().Enters(map[x][y-1],Direction.Up);
+				Game.GetActualWorker().Enters(map[x][y-1],Direction.Left);
 				break;
 			case "moveUp":
-				map[x][y].getThing().Enters(map[x-1][y],Direction.Up);
+				Game.GetActualWorker().Enters(map[x-1][y],Direction.Up);
 				break;
 			case "moveDown":
-				map[x][y].getThing().Enters(map[x+1][y],Direction.Up);
+				Game.GetActualWorker().Enters(map[x+1][y],Direction.Down);
 				break;
 			case "exit":
 				Game.end=true;		
@@ -140,7 +146,7 @@ public class WareHouse {
 			}
 			
 		}catch(Exception e) {
-			System.out.println("Andris a mapokba jelold mashogy a kijelolt munkast es tarold el az x, y koordinatajat meg mentsd el actualWorker-be :*");
+			System.out.println("Exception: warehouse.readCommand()");
 		}
 	}
 
@@ -156,17 +162,4 @@ public class WareHouse {
 			
 		}
 	}
-
-/*
-	public static void main(String args[]){
-		WareHouse wh = new WareHouse();
-		wh.readMap("testMap1.txt");
-		wh.neighbors();
-		//Game.SetActualWorker(wh.map[5][5].getThing());
-		if(wh.map[5][5].getThing()!=null)
-			wh.map[5][4].getThing().Enters(wh.map[4][4],Direction.Up);
-		if(wh.map[4][4]!=null) wh.map[4][4].getThing().Enters(wh.map[4][3], Direction.Left);
-		wh.showMap();
-		
-	}*/
 }

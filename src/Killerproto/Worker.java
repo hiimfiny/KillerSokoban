@@ -35,7 +35,8 @@ public class Worker implements Thing
 		
 	}
 	@Override
-	public void Enters(Field f,Direction d) {		
+	public void Enters(Field f,Direction d) {
+		System.out.println("Worker enters");
 		f.Accept(this, d);
 				
 	}

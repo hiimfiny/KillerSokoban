@@ -9,6 +9,11 @@ public class SecretHole extends Hole {
         if(state)
         {
             c = null;
+            Field f= neighbors.get(negDirection(d));
+            if(f!=null) {
+                f.Remove(c);
+            }
+            
         }
         else
         {
@@ -32,6 +37,10 @@ public class SecretHole extends Hole {
         if(state)
         {
             w = null;
+            Field f= neighbors.get(negDirection(d));
+            if(f!=null) {
+                f.Remove(w);
+            }
         }
         else
         {
@@ -53,7 +62,7 @@ public class SecretHole extends Hole {
 
     public void changeToTrue()
     {
-
+    	character='o';
         state = true;
         if(getThing()!=null)
         {
@@ -65,6 +74,7 @@ public class SecretHole extends Hole {
     public void changeToFalse( )
     {
         state = false;
+        character=',';
     }
     
 }

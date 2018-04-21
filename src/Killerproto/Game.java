@@ -10,6 +10,7 @@ public class Game
 	//Az a munk�s amelyik �ppen l�p
 	private static  Worker actualWorker;
 	//visszaadja az �ppen l�p� munk�st.
+	static boolean endMapRead=false;
 	public static Worker GetActualWorker() {
 		return actualWorker;
 	}
@@ -72,7 +73,12 @@ public class Game
 			case "loadGame(TestMap14)":
 				wh.readMap( "testMap14.txt");
 				break;
-		
+			case "exit":
+				endMapRead=true;
+				break;
+			default:
+				end=true;
+				break;	
 				
 			}
 		} catch (IOException e) {
@@ -85,17 +91,20 @@ public class Game
 
     public static void main(String args[]){
 		WareHouse wh = new WareHouse();
-		loadMap(wh);		
-		wh.neighbors();
-		//Game.SetActualWorker(wh.map[5][5].getThing());
-		/*if(wh.map[5][5].getThing()!=null)
-			wh.map[5][4].getThing().Enters(wh.map[4][4],Direction.Up);
-		if(wh.map[4][4]!=null) wh.map[4][4].getThing().Enters(wh.map[4][3], Direction.Left);*/
 		
+		/*if(wh.map[2][2].getThing()!=null)
+			wh.map[2][2].getThing().Enters(wh.map[2][3],Direction.Right);
+			*/
+		//if(wh.map[4][4]!=null) wh.map[4][4].getThing().Enters(wh.map[4][3], Direction.Left);
+		//while(!endMapRead) {
+		//	end=false;
+			loadMap(wh);		
+			wh.neighbors();
 		while(!Game.end) {
 			wh.showMap();
 			wh.readCommand();
 		}
+		//}
 		
 	}
 }

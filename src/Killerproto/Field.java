@@ -9,7 +9,7 @@ public class Field {
 	protected Map<Direction,Field> neighbors;
 	private Thing currentThing;
 	protected Crate targetCrate;
-	private char character;
+	protected char character;
 
 	public char getChar(){return character;}
 	public void setChar(char c){this.character=c;}
@@ -18,17 +18,16 @@ public class Field {
 		neighbors=new HashMap<Direction,Field>();
 	}
 
-    public void Accept(Thing t,Direction d) {
-    	
-    }
+    public void Accept(Thing t,Direction d) {}
     
         
     public void setCurrentThing(Thing t) {
     	currentThing = t;
+    	if(t!=null) t.SetCurrent(this);
     }
     
     //Neg�lni kell a Directiont, hogy tudjuk, melyik ir�nyban l�v� Fieldr�l kell t�r�lni az elemet.
-    protected Direction negDirection(Direction d) {
+    public Direction negDirection(Direction d) {
     	switch(d) {
     	case Left:
     		return Direction.Right;
@@ -43,12 +42,15 @@ public class Field {
     }
     
     public void Accept(Worker w,Direction d) {
+    	System.out.println("Field Accept");
     	if(currentThing!=null) {//Ha van valami a mez�n azt meg kell pr�b�lni tov�bbl�kni
     		currentThing.PushedBy(w, neighbors.get(d), d);
+    		
     	}
     	/*Ha a mez�n nincs semmi akkor a munk�s ott marad
     		pl elvileg ha ell�kt�k ami rajta volt �s az visszat�r akkor itt m�r nem lesz semmi*/
     	if(currentThing==null) {
+    		
     		currentThing=w;
     		//A munk�st t�r�lj�k az el�z� mez�j�r�l, ami az elenkez� ir�nyban van
     		Field f= neighbors.get(negDirection(d));

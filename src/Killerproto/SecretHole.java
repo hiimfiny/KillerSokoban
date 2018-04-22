@@ -65,6 +65,11 @@ public class SecretHole extends Hole {
             }
         }
     }
+    
+    public void Remove(Thing t) {
+    	character=',';
+    	currentThing=null;
+    }
 
     public void changeToTrue()
     {

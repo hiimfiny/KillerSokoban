@@ -31,11 +31,18 @@ public class Switch extends Field{
         	secretHole.changeToTrue();
         }
     }
+    
+    public void Remove(Worker w) {
+    	character='s';
+    	setCurrentThing(null);
+    	
+    }
 
-    public void Remove()
+    public void Remove(Crate c)
     {
         secretHole.changeToFalse();
         setCurrentThing(null);
+               
 
     }
 }

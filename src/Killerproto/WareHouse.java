@@ -181,6 +181,14 @@ public class WareHouse {
 
 	
 	public void neighbors() {
+		//Beallitjuk a palya szeleinek szomszedait
+		for(int i=0;i<size;i++) {
+			map[i][0].setNeighbour(Direction.Right, map[i][1]);
+			map[0][i].setNeighbour(Direction.Down, map[1][i]);
+			map[i][size-1].setNeighbour(Direction.Left, map[i][size-2]);
+			map[size-1][i].setNeighbour(Direction.Up, map[size-2][i]);
+		}
+		//A palya belsejen is beallitjuk a szomszedokat
 		for(int i=1;i<size-1;i++) {
 			for(int j=1;j<size-1;j++) {
 				map[i][j].setNeighbour(Direction.Up, map[i-1][j]);

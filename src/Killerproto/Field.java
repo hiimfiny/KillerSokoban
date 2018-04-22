@@ -78,7 +78,8 @@ public class Field {
     		if(f!=null) {
     			f.Remove(c);
     		}
-    		if(targetCrate==c) {
+    		if(this==c.getTargetField()) {
+    			System.out.println("A lada a helyen van!");
         		//A helyen van a lada juhuuu
         	}
     	}

@@ -60,9 +60,6 @@ public class Crate implements Thing
 		current=f;
 	}
 
-	
-
-
-
-
+	public void setTargetField(Field f) {target=f;}
+	public Field getTargetField() {return target;}
 }

@@ -41,6 +41,7 @@ public class Pillar implements Thing
 		current=f;
 		
 	}
+	public void setTargetField(Field f){}
 
 
 }

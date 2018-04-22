@@ -8,5 +8,6 @@ public interface Thing
     public void Enters(Field f,Direction d) ;
     public char getChar();
     public void SetCurrent(Field f);
+    public void setTargetField(Field f);
 
 }

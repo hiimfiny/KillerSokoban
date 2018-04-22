@@ -43,6 +43,7 @@ public class Worker implements Thing
 	public void SetCurrent(Field f) {
 		current=f;
 	}
+	public void setTargetField(Field f){}
 	public void Destroy() {
 		current.Remove(this);
 	}

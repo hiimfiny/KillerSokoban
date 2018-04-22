@@ -69,6 +69,8 @@ public class Game
 				break;
 			case "loadGame(TestMap13)":
 				wh.readMap( "testMap13.txt");
+				//A pályán lévő ládának beállitjuk a helyét
+				wh.map[2][3].getThing().setTargetField(wh.map[2][4]);
 				break;
 			case "loadGame(TestMap14)":
 				wh.readMap( "testMap14.txt");

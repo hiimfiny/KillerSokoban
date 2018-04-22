@@ -47,10 +47,10 @@ public class WareHouse {
 					for (int j = 0; j < size; j++) {
 						switch (values[j]) {
 							case "0":
-								map[i - 7][j].setCurrentThing(new Pillar());
+								map[i - size][j].setCurrentThing(new Pillar());
 								break;
 							case "7":
-								map[i - 7][j].setCurrentThing(new Crate(2));
+								map[i - size][j].setCurrentThing(new Crate(2));
 								break;
 							case "8":
 								Worker w=new Worker('1');
@@ -60,13 +60,13 @@ public class WareHouse {
 								y=j;
 								break;
 							case "9":
-								map[i - 7][j].setCurrentThing(new Worker('2'));
+								map[i - size][j].setCurrentThing(new Worker('2'));
 								break;
 							case "n":
-								map[i-7][j].setCurrentThing(new Crate(6));
+								map[i-size][j].setCurrentThing(new Crate(6));
 								break;
 							case ".":
-								map[i - 7][j].setCurrentThing(null);
+								map[i - size][j].setCurrentThing(null);
 								break;
 						}
 					}

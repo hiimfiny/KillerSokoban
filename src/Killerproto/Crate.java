@@ -7,10 +7,12 @@ public class Crate implements Thing
     private int weight;
     private char character;
 
-    public Crate() {
+    public Crate(int i) {
         character = 'c';
-    	weight =2;
+    	weight =i;
     }
+    
+    
 
     public char getChar(){return character;}
     public void setChar(char c){this.character=c;}
@@ -24,6 +26,7 @@ public class Crate implements Thing
     	
     	//Ellen�rizz�k, hogy a munk�snak van e ereje eltolni a l�d�t.
     	if(Game.GetActualWorker().GetPower()>weight) {
+    		System.out.println(Game.GetActualWorker().GetPower()+ ">"+weight);
     		f.Accept(this, d);
     		//Cs�kken a munk�s ereje a l�da s�ly�val.
     		//Game.GetActualWorker().DecreasePower(weight);

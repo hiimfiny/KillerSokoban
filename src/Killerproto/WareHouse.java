@@ -50,7 +50,7 @@ public class WareHouse {
 								map[i - 7][j].setCurrentThing(new Pillar());
 								break;
 							case "7":
-								map[i - 7][j].setCurrentThing(new Crate());
+								map[i - 7][j].setCurrentThing(new Crate(2));
 								break;
 							case "8":
 								Worker w=new Worker('1');
@@ -62,8 +62,12 @@ public class WareHouse {
 							case "9":
 								map[i - 7][j].setCurrentThing(new Worker('2'));
 								break;
+							case "n":
+								map[i-7][j].setCurrentThing(new Crate(6));
+								break;
 							case ".":
 								map[i - 7][j].setCurrentThing(null);
+								break;
 						}
 					}
 					i++;

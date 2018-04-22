@@ -2,6 +2,8 @@ package Killerproto;
 
 public class SlipperyField extends Field
 {
+	
+	//public void weightChange(Crate c) {		c.ChangeWeight(this);	}
 
     public void Accept(Crate c, Direction d) {
     	c.ChangeWeight(this);
@@ -19,6 +21,10 @@ public class SlipperyField extends Field
         		//A helyen van a lada juhuuu
         	}
     	}
+    }
+    public void Remove(Thing t) {
+        character='-';
+        currentThing=null;
     }
 
 }

@@ -13,6 +13,8 @@ public class WareHouse {
 	List<Crate> crates;
 	int size;
 	Field[][] map;
+	private SecretHole secret;
+	private Switch sw;
 	
 	//A kijelolt munkas koordinataja
 	static int x,y;
@@ -90,12 +92,14 @@ public class WareHouse {
 								break;
 							//A secret hole
 							case "5":
-								map[i][j] = new SecretHole();
+								secret=new SecretHole();
+								map[i][j] = secret;
 								map[i][j].setChar(',');
 								break;
 							//A switch
 							case "6":
-								map[i][j] = new Switch();
+								sw=new Switch();
+								map[i][j] = sw;
 								map[i][j].setChar('s');
 								break;
 						}
@@ -104,6 +108,11 @@ public class WareHouse {
 				}
 			}
 			br.close();
+			if(secret!=null)
+				if(sw!=null) {
+					secret.setSwitch(sw);
+					sw.setSecret(secret);
+				}
 		} catch (IOException e) {
 			System.out.println("rip");
 		}
@@ -121,6 +130,18 @@ public class WareHouse {
 		}
 		
 	}
+	public void searchWorker() {
+		for(int i=0;i<size;i++) {
+			for(int j=0;j<size;j++)
+			{
+				if(map[i][j].getChar()=='1') {
+					x=i;
+					y=j;
+				}
+					
+			}
+		}
+	}
 	
 	public void readCommand(){
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
@@ -130,15 +151,19 @@ public class WareHouse {
 			switch(command) {
 			case "moveRight":
 				Game.GetActualWorker().Enters(map[x][y+1], Direction.Right);
+				searchWorker();
 				break;
 			case "moveLeft":
 				Game.GetActualWorker().Enters(map[x][y-1],Direction.Left);
+				searchWorker();
 				break;
 			case "moveUp":
 				Game.GetActualWorker().Enters(map[x-1][y],Direction.Up);
+				searchWorker();
 				break;
 			case "moveDown":
 				Game.GetActualWorker().Enters(map[x+1][y],Direction.Down);
+				searchWorker();
 				break;
 			case "exit":
 				Game.end=true;		

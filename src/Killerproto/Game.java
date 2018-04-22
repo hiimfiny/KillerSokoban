@@ -73,7 +73,7 @@ public class Game
 			case "loadGame(TestMap14)":
 				wh.readMap( "testMap14.txt");
 				break;
-			case "exit":
+			case "Exit":
 				endMapRead=true;
 				break;
 			default:
@@ -90,21 +90,17 @@ public class Game
 
 
     public static void main(String args[]){
-		WareHouse wh = new WareHouse();
+		WareHouse wh = new WareHouse();		
 		
-		/*if(wh.map[2][2].getThing()!=null)
-			wh.map[2][2].getThing().Enters(wh.map[2][3],Direction.Right);
-			*/
-		//if(wh.map[4][4]!=null) wh.map[4][4].getThing().Enters(wh.map[4][3], Direction.Left);
-		//while(!endMapRead) {
-		//	end=false;
+		while(!endMapRead) {
+			end=false;
 			loadMap(wh);		
 			wh.neighbors();
-		while(!Game.end) {
+		while(!Game.end&&!endMapRead) {
 			wh.showMap();
 			wh.readCommand();
 		}
-		//}
+		}
 		
 	}
 }

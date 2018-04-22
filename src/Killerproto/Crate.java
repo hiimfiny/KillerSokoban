@@ -21,24 +21,27 @@ public class Crate implements Thing
     }
     public void PushedBy(Worker w, Field f, Direction d) {
     	
+    	
     	//Ellen�rizz�k, hogy a munk�snak van e ereje eltolni a l�d�t.
     	if(Game.GetActualWorker().GetPower()>weight) {
-    	//if(true) {
     		f.Accept(this, d);
     		//Cs�kken a munk�s ereje a l�da s�ly�val.
-    	//	Game.GetActualWorker().DecreasePower(weight);
+    		//Game.GetActualWorker().DecreasePower(weight);
     	}
     	else {
+    		System.out.println("Push failed");
     		return;
     	}
     }
     
     public void ChangeWeight(StickyField sf) {
     	weight=5;
+    	System.out.println("Crates weight increased");
     	
     }
     public void ChangeWeight(SlipperyField sf) {
     	weight=1;
+    	System.out.println("Crates weight decreased");
     	
     }
 	@Override

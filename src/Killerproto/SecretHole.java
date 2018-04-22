@@ -3,6 +3,10 @@ package Killerproto;
 public class SecretHole extends Hole {
     private boolean state;
     private Switch sw;
+    
+    public void setSwitch(Switch s) {
+    	sw=s;
+    }
 
     public void  Accept(Crate c, Direction d)
     {
@@ -23,8 +27,9 @@ public class SecretHole extends Hole {
             }
 
             if(getThing()==null) {
-                setCurrentThing(c);
-
+               // setCurrentThing(c);
+            	currentThing=c;
+            	character=c.getChar();
                 Field f= neighbors.get(negDirection(d));
                 if(f!=null) {
                     f.Remove(c);
@@ -50,7 +55,8 @@ public class SecretHole extends Hole {
             }
 
             if(getThing()==null) {
-                setCurrentThing(w);
+                currentThing=w;
+                character=w.getChar();
 
                 Field f= neighbors.get(negDirection(d));
                 if(f!=null) {
@@ -76,5 +82,7 @@ public class SecretHole extends Hole {
         state = false;
         character=',';
     }
+    
+   
     
 }

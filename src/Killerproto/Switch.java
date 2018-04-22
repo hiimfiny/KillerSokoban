@@ -7,6 +7,10 @@ public class Switch extends Field{
      */
 	private SecretHole secretHole;
 	
+	public void setSecret(SecretHole sh) {
+		secretHole=sh;
+	}
+	
     public void Accept(Crate c, Direction d)
     {
         if(getThing()!=null)
@@ -15,14 +19,17 @@ public class Switch extends Field{
         }
 
         if(getThing()==null) {
-            setCurrentThing(c);
-
+           // setCurrentThing(c);
+        	currentThing=c;
+        	character=c.getChar();
             Field f= neighbors.get(negDirection(d));
-            if(f!=null) {
+            if(f!=null) {            
                 f.Remove(c);
             }
         }
-        secretHole.changeToTrue();
+        if(secretHole!=null) {
+        	secretHole.changeToTrue();
+        }
     }
 
     public void Remove()

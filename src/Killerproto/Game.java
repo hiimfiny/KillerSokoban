@@ -2,30 +2,43 @@ package Killerproto;
 import java.io.*;
 import java.util.*;
 
+/**
+ * A jatekot reprezentalo osztaly
+ */
 public class Game
 {
-	public static boolean end=false;
-	private WareHouse warehouse;
-	private List<Player> players; 
-	//Az a munk�s amelyik �ppen l�p
-	private static  Worker actualWorker;
-	//visszaadja az �ppen l�p� munk�st.
-	static boolean endMapRead=false;
+	public static boolean end=false;			//A jatek veget jelzo valtozo
+	private WareHouse warehouse;				//A jatek raktara
+	private List<Player> players;				//A jatekot jatszo jatekosok
+	private static  Worker actualWorker;		//A jelenleg aktiv munkas
+	static boolean endMapRead=false;			//A beolvasas veget jelzo valtozo
+
+	/**
+	 * A jelenleg aktiv munkast kerdezi le
+	 * @return A jelenleg aktiv munkas
+	 */
 	public static Worker GetActualWorker() {
 		return actualWorker;
 	}
+
+	/**
+	 * A jelenleg aktiv munkast allitja be az adott munkasra
+	 * @param w A munkas amit be akarunk allitani
+	 */
 	public static void SetActualWorker(Worker w) {
 		actualWorker=w;
 	}
-
-
 
     public void NewGame(){ };
     public void Play(){ };
     public void EndGame(){ };
     public void NextPlayer(){ };
-    
-    public static void loadMap(WareHouse wh) {
+
+	/**
+	 * A tesztpalyak betolteset vegzi el
+	 * @param wh A raktar ami a beolvasast es a kirajzolast vegzi
+	 */
+	public static void loadMap(WareHouse wh) {
     	BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
     	String command;
     	try {
@@ -87,10 +100,12 @@ public class Game
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	
     }
 
-
+	/**
+	 * A tesztelest vegzi
+	 * @param args -
+	 */
     public static void main(String args[]){
 		WareHouse wh = new WareHouse();		
 		
@@ -103,6 +118,5 @@ public class Game
 			wh.readCommand();
 		}
 		}
-		
 	}
 }

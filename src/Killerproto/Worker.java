@@ -1,26 +1,65 @@
 package Killerproto;
 
+/**
+ * A munkast reprezentalo osztaly
+ */
 public class Worker implements Thing
 {
-	private Field current;
-    private int power;
-	private char character;
+	private Field current;			//A mezo amin a munkas epp all
+    private int power;				//A munkas ereje
+	private char character;			//A munkast reprezentalo karakter
 
+	/**
+	 * A munkas konstruktora
+	 * @param c A karakter ami a munkas karaktere lesz
+	 */
 	public Worker(char c) {
 		character=c;
 		power=4;
 	}
-	public char getChar(){return character;}
-	public void setChar(char c){this.character=c;}
-	
-	
-	public int GetPower() {return power;}
-	public void DecreasePower(int d) {power-=d;}
 
+	/**
+	 * A munkas karakteret keredezi le
+	 * @return A munkas karaktere
+	 */
+	public char getChar(){return character;}
+
+	/**
+	 * A munkas karakteret allitja be az adott karakterre
+	 * @param c A karakter
+	 */
+	public void setChar(char c){this.character=c;}
+
+	/**
+	 * A munkas jelenlegi mezojet allitja be
+	 * @param f A mezo amit beallit
+	 */
+	public void SetCurrent(Field f) {
+		current=f;
+	}
+
+	/**
+	 * A munkas erejet keredezi le
+	 * @return A munkas ereje
+	 */
+	public int GetPower() {return power;}
+
+	/**
+	 * Egy lada eltolja a munkast
+	 * @param c A lada ami eltolja
+	 * @param f A mezo amire eltolja
+	 * @param d Az irany amerre eltolja
+	 */
     public void PushedBy(Crate c, Field f,Direction d) {
     	f.Accept(this, d);
-    	
     }
+
+	/**
+	 * Egy munkas eltolja a munkast. Ha az aktualis jatekos tolja, akkor nem torenik semmi.
+	 * @param w A munkas aki eltolja
+	 * @param f A mezo amire eltolja
+	 * @param d Az irany amerre eltolja
+	 */
     public void PushedBy(Worker w, Field f, Direction d) {
     	if(Game.GetActualWorker()==w) {
     		return;
@@ -29,20 +68,19 @@ public class Worker implements Thing
     		f.Accept(this, d);
     	}
     }
-	@Override
-	public void PushedBy(Thing t, Field f,Direction d) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	/**
+	 * A munkas mezore lepeset kezeli
+	 * @param f A mezo amire lep
+	 * @param d Az irany amerre lep
+	 */
 	@Override
 	public void Enters(Field f,Direction d) {
 		f.Accept(this, d);
-				
 	}
-	
-	public void SetCurrent(Field f) {
-		current=f;
-	}
+
+
+	public void PushedBy(Thing t, Field f,Direction d) {}
 	public void setTargetField(Field f){}
 	public void Destroy() {
 		current.Remove(this);

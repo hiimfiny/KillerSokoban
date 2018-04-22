@@ -7,24 +7,21 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
-
+/**
+ * A raktarat reprezentalo ostaly
+ */
 public class WareHouse {
-	List<Field> fields;
-	List<Crate> crates;
-	int size;
-	Field[][] map;
-	private SecretHole secret;
-	private Switch sw;
-	
-	//A kijelolt munkas koordinataja
-	static int x,y;
-	
-	
+	protected int size;						//A raktar merete
+	Field[][] map;					//A raktar mezoi
+	private SecretHole secret;		//A tesztben szereplo titkos lyuk
+	private Switch sw;				//A tesztben szereplo kapcsolo
+	static int x,y;					//A kijelolt munkas koordinataja
 
-	public int getSize() {
-		return this.size;
-	}
-
+	/**
+	 * A fajlolvasast kezelo fuggveny
+	 * Vegigmegy a fajl sorain, es letrehozza a mezoket, majd vegigmegy a thingeken is es beallitja azokat
+	 * @param filename A beolvasando fajl neve
+	 */
 	public void readMap(String filename) {
 
 		try {
@@ -32,8 +29,6 @@ public class WareHouse {
 			String line;
 			String[] values;
 			this.size = (Integer.parseInt(br.readLine()));
-			
-			//Field[][] temp = new Field[size][size];
 			this.map=new Field[size][size];
 			for(int i=0;i<size;i++){
 				for(int j=0;j<size;j++){
@@ -122,6 +117,9 @@ public class WareHouse {
 		}
 	}
 
+	/**
+	 * Kirajzolja a raktarat
+	 */
 	public void showMap() {
 		for (int i = 0; i < size; i++) {
 			for (int j = 0; j < size; j++) {
@@ -134,6 +132,10 @@ public class WareHouse {
 		}
 		
 	}
+
+	/**
+	 * Megkeresi az epp aktualis jatekost
+	 */
 	public void searchWorker() {
 		for(int i=0;i<size;i++) {
 			for(int j=0;j<size;j++)
@@ -146,7 +148,10 @@ public class WareHouse {
 			}
 		}
 	}
-	
+
+	/**
+	 * A parancsok beolvasasat vegzi
+	 */
 	public void readCommand(){
 		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
 		try {
@@ -170,16 +175,16 @@ public class WareHouse {
 				searchWorker();
 				break;
 			case "exit":
-				Game.end=true;		
-				
+				Game.end=true;
 			}
-			
 		}catch(Exception e) {
 			System.out.println("Exception: warehouse.readCommand()");
 		}
 	}
 
-	
+	/**
+	 * Beallitja minden mezo minden szomszedjat
+	 */
 	public void neighbors() {
 		//Beallitjuk a palya szeleinek szomszedait
 		for(int i=0;i<size;i++) {
@@ -196,7 +201,7 @@ public class WareHouse {
 				map[i][j].setNeighbour(Direction.Left, map[i][j-1]);
 				map[i][j].setNeighbour(Direction.Right, map[i][j+1]);
 			}
-			
 		}
 	}
+
 }

@@ -1,18 +1,23 @@
 package Killerproto;
 import java.util.*;
 
+/**
+ * A jatekost reprezentalo osztaly
+ */
 public class Player
 {
-	private List<Worker> workers;
-    private String Name;
+	private List<Worker> workers;           //A jatekos munkasai
+    private String Name;                    //A jatekos neve
     private int number;
-    private int points;
+    private int points;                     //A jatekos pontszama
 
+    /**
+     * A jatekos konstruktora
+     */
     public Player(){
         points=0;
     }
 
-    public void Select (Worker w){};
     public Worker SelectWorker(int i){
         Worker temp = new Worker('1');
         temp=workers.get(i);

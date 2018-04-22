@@ -1,16 +1,26 @@
 package Killerproto;
 
+/**
+ * A kapcsolot reprezentalo osztaly
+ */
 public class Switch extends Field{
 
+	private SecretHole secretHole;          //A kapcsolohoz tartozo titkos lyuk
+
     /**
-     * ez a komment helye
+     * A kapcsolohoz tartozo titkos lyukat allitja be
+     * @param sh A kapcsolohoz tartozo titkos lyuk
      */
-	private SecretHole secretHole;
-	
 	public void setSecret(SecretHole sh) {
 		secretHole=sh;
 	}
-	
+
+    /**
+     * Egy lada lep a kapcsolora, es ez kinyitja a hozza tartozo titkos lyukat.
+     * Ezen kivul ugy mukodik mint egy sima mezo
+     * @param c A lada ami a mezore probal lepni
+     * @param d Az irany amerre lep
+     */
     public void Accept(Crate c, Direction d)
     {
         if(getThing()!=null)
@@ -19,7 +29,6 @@ public class Switch extends Field{
         }
 
         if(getThing()==null) {
-           // setCurrentThing(c);
         	currentThing=c;
         	character=c.getChar();
             Field f= neighbors.get(negDirection(d));
@@ -31,18 +40,24 @@ public class Switch extends Field{
         	secretHole.changeToTrue();
         }
     }
-    
+
+    /**
+     * A munkas lekerul a kapcsolrol
+     * @param w A munkas
+     */
     public void Remove(Worker w) {
     	character='s';
     	setCurrentThing(null);
-    	
     }
 
+    /**
+     * A lada lekerul a kapcsolorol, es visszazarodik a titkos lyuk
+     * @param c A lada
+     */
     public void Remove(Crate c)
     {
         secretHole.changeToFalse();
         setCurrentThing(null);
-               
-
     }
+
 }

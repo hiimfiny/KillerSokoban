@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class Game
 {
+	Graphics graphic;
 	public static boolean end=false;			//A jatek veget jelzo valtozo
 	private WareHouse warehouse;				//A jatek raktara
 	private List<Player> players;				//A jatekot jatszo jatekosok
@@ -101,6 +102,11 @@ public class Game
 			e.printStackTrace();
 		}
     }
+	
+	public void menu() {
+		graphic=new Graphics(this);
+		graphic.showMenu();
+	}
 
 	/**
 	 * A tesztelest vegzi
@@ -108,7 +114,8 @@ public class Game
 	 */
     public static void main(String args[]){
 		WareHouse wh = new WareHouse();		
-		
+		Game g=new Game();
+		g.menu();
 		while(!endMapRead) {
 			end=false;
 			loadMap(wh);		

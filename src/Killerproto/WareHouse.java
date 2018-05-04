@@ -1,6 +1,7 @@
 package Killerproto;
 
 import java.io.BufferedReader;
+import javax.swing.*;
 import java.io.InputStreamReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,7 +11,11 @@ import java.util.List;
 /**
  * A raktarat reprezentalo ostaly
  */
-public class WareHouse {
+public class WareHouse extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	protected int size;						//A raktar merete
 	Field[][] map;					//A raktar mezoi
 	private SecretHole secret;		//A tesztben szereplo titkos lyuk

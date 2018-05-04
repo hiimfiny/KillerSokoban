@@ -17,11 +17,16 @@ public class WareHouse extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	protected int size;						//A raktar merete
-	Field[][] map;					//A raktar mezoi
+	public Field[][] map;					//A raktar mezoi
 	private SecretHole secret;		//A tesztben szereplo titkos lyuk
 	private Switch sw;				//A tesztben szereplo kapcsolo
 	static int x,y;					//A kijelolt munkas koordinataja
 
+	public int getS() {
+		return size;
+		
+	}
+	
 	/**
 	 * A fajlolvasast kezelo fuggveny
 	 * Vegigmegy a fajl sorain, es letrehozza a mezoket, majd vegigmegy a thingeken is es beallitja azokat

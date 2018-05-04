@@ -1,11 +1,13 @@
 package Killerproto;
 
+import java.awt.Color;
 import java.util.*;
+import javax.swing.*;
 @SuppressWarnings("ALL")
 /**
  * A mezot reprezentalo osztaly
  */
-public class Field {
+public class Field extends JButton{
 
 	protected Map<Direction,Field> neighbors;			//Az adott mezo szomszedjait tarolja
 	protected Thing currentThing;						//Az adott mezon levo
@@ -95,6 +97,7 @@ public class Field {
     		currentThing.PushedBy(w, neighbors.get(d), d);
     	}
     	if(currentThing==null) {
+    		this.setBackground(Color.RED);
     		currentThing=w;
     		character='1';
 
@@ -119,6 +122,7 @@ public class Field {
     	}
     	if(currentThing==null) {
     		currentThing=c;
+    		this.setBackground(Color.BLACK);
     		character='c';
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {

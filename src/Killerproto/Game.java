@@ -21,6 +21,10 @@ public class Game
 	public static Worker GetActualWorker() {
 		return actualWorker;
 	}
+	
+	public WareHouse getwh() {
+		return warehouse;
+	}
 
 	/**
 	 * A jelenleg aktiv munkast allitja be az adott munkasra
@@ -30,10 +34,19 @@ public class Game
 		actualWorker=w;
 	}
 
-    public void NewGame(){ };
-    public void Play(){ };
-    public void EndGame(){ };
-    public void NextPlayer(){ };
+    public void NewGame(){
+    	//players.add(new Player("player1"));
+    	//players.add(new Player("player2"));
+    	warehouse=new WareHouse();
+    	warehouse.readMap("testMap2.txt");
+    	graphic=new Graphics(this);
+    	graphic.showMap();
+    	System.out.println("ja");
+    	
+    }
+    public void Play(){ }
+    public void EndGame(){ }
+    public void NextPlayer(){ }
 
 	/**
 	 * A tesztpalyak betolteset vegzi el

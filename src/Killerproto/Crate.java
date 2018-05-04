@@ -1,5 +1,7 @@
 package Killerproto;
 
+import java.awt.Color;
+
 /**
  * A lada osztalyt reprezentalja
  */
@@ -36,6 +38,8 @@ public class Crate implements Thing
 	 */
 	public void SetCurrent(Field f) {
 		current=f;
+		f.setBackground(Color.YELLOW);
+		f.setText("C");
 	}
 
 	/**

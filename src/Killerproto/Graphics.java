@@ -12,7 +12,10 @@ public class Graphics {
 	
 	public Graphics(Game g) {
 		game=g;
+		map=g.getwh();
+		
 	}
+	
 	
 	public void showMenu() {
 		JFrame menu=new JFrame();
@@ -123,6 +126,18 @@ public class Graphics {
 	
 	
 	public void showMap() {
+		JFrame mainFrame=new JFrame();
+		mainFrame.setPreferredSize(new Dimension(map.getS()*50,map.getS()*50));
+		JPanel pane=new JPanel();
+		pane.setLayout(new GridLayout(map.getS(),map.getS()));
+		for(int i=0;i<map.getS();i++) {
+			for(int j=0;j<map.getS();j++) {
+				pane.add(map.map[i][j]);
+			}
+		}
+		mainFrame.add(pane);
+		mainFrame.setVisible(true);
+		mainFrame.pack();
 		
 	}
 	

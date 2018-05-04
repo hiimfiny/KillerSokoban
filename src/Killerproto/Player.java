@@ -14,6 +14,10 @@ public class Player
     /**
      * A jatekos konstruktora
      */
+    public Player(String name) {
+    	Name=name;
+    	points=0;
+    }
     public Player(){
         points=0;
     }

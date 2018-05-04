@@ -1,5 +1,7 @@
 package Killerproto;
 
+import java.awt.Color;
+
 /**
  * A munkast reprezentalo osztaly
  */
@@ -36,6 +38,8 @@ public class Worker implements Thing
 	 */
 	public void SetCurrent(Field f) {
 		current=f;
+		f.setBackground(Color.RED);
+		f.setText("W");
 	}
 
 	/**

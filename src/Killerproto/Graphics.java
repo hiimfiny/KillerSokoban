@@ -71,6 +71,15 @@ public class Graphics {
 	    	endFrame();
 	    }
 	}
+
+	private class MoveActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+
+			Game.GetActualWorker().Enters(map.map[map.x-1][map.y],Direction.Up);
+			map.searchWorker();
+
+		}
+	}
 	
 	public void endFrame() {
 		JFrame end=new JFrame();
@@ -128,8 +137,10 @@ public class Graphics {
 
 	public void loadMap() {
 		JFrame mainFrame = new JFrame();
+		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		mainFrame.setPreferredSize(new Dimension(map.getS() * 50, map.getS() * 50));
 		JPanel pane = new JPanel();
+		JPanel move = new JPanel();
 		pane.setLayout(new GridLayout(map.getS(), map.getS()));
 		for (int i = 0; i < map.getS(); i++) {
 			for (int j = 0; j < map.getS(); j++) {
@@ -137,7 +148,13 @@ public class Graphics {
 				//map.map[i][j].setEnabled(false);
 			}
 		}
-		mainFrame.add(pane);
+		JButton up = new JButton("up");
+		up.addActionListener(new MoveActionListener());
+		splitPane.add(pane);
+		move.add(up);
+
+		splitPane.add(move);
+		mainFrame.add(splitPane);
 		mainFrame.setVisible(true);
 		mainFrame.pack();
 	}

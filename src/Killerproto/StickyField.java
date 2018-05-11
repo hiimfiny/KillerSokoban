@@ -1,10 +1,19 @@
 package Killerproto;
 
+import java.awt.*;
+
 /**
  * A ragados mezot reprezentalo osztaly
  */
 public class StickyField extends Field
 {
+	public StickyField(){
+		SetCurrent(this);
+	}
+	public void SetCurrent(Field f) {
+		this.setBackground(Color.ORANGE);
+	}
+
 	/**
 	 * Egy lada a mezore kerul, es megno a sulya.
 	 * Utana ugy viselkedik mint egy sima mezo.

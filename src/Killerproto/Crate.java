@@ -37,10 +37,10 @@ public class Crate implements Thing
 	 * @param f a jelenlegi mezo
 	 */
 	public void SetCurrent(Field f) {
-		current=f;
-		f.setBackground(Color.YELLOW);
-		f.setText("C");
-	}
+	current=f;
+	f.setBackground(Color.YELLOW);
+	f.setText("C");
+}
 
 	/**
 	 * A lada cel mezojet allitja be

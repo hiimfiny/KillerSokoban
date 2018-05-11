@@ -18,6 +18,11 @@ public class Field extends JButton{
 	 */
 	public Field() {
 		neighbors=new HashMap<Direction,Field>();
+		this.setBackground(Color.cyan);
+	}
+
+	public void SetCurrent(Field f) {
+		this.setBackground(Color.CYAN);
 	}
 
 	/**

@@ -1,5 +1,7 @@
 package Killerproto;
 
+import java.awt.*;
+
 /**
  * Az oszlopot reprezentalo osztaly
  */
@@ -21,7 +23,7 @@ public class Pillar implements Thing
 	 */
 	public char getChar(){return character;}
 
-	/**
+		/**
 	 * Az oszlopot reprezentalo karaktert allitja be
 	 * @param c A karakter amit beallit
 	 */
@@ -34,6 +36,8 @@ public class Pillar implements Thing
 	@Override
 	public void SetCurrent(Field f) {
 		current=f;
+		f.setBackground(Color.BLUE);
+		f.setText("P");
 	}
 
 	/**

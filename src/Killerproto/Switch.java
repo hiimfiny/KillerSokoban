@@ -1,5 +1,7 @@
 package Killerproto;
 
+import com.sun.prism.paint.Color;
+
 /**
  * A kapcsolot reprezentalo osztaly
  */
@@ -13,7 +15,11 @@ public class Switch extends Field{
      */
 	public void setSecret(SecretHole sh) {
 		secretHole=sh;
+		SetCurrent(this);
 	}
+    public void SetCurrent(Field f) {
+       this.setBackground(java.awt.Color.GREEN);
+    }
 
     /**
      * Egy lada lep a kapcsolora, es ez kinyitja a hozza tartozo titkos lyukat.
@@ -38,8 +44,10 @@ public class Switch extends Field{
         }
         if(secretHole!=null) {
         	secretHole.changeToTrue();
+        	secretHole.setBackground(java.awt.Color.BLACK);
         }
     }
+
 
     /**
      * A munkas lekerul a kapcsolrol
@@ -57,6 +65,7 @@ public class Switch extends Field{
     public void Remove(Crate c)
     {
         secretHole.changeToFalse();
+        secretHole.setBackground(java.awt.Color.cyan);
         setCurrentThing(null);
     }
 

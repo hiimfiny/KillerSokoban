@@ -1,5 +1,7 @@
 package Killerproto;
 
+import java.awt.*;
+
 /**
  * A titkos lyukat reprezentalo osztaly
  */
@@ -14,6 +16,7 @@ public class SecretHole extends Hole {
     public void setSwitch(Switch s) {
     	sw=s;
     }
+
 
     /**
      * Egy lada titkus lyukra lepeset kezeli.

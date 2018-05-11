@@ -1,10 +1,18 @@
 package Killerproto;
 
+import java.awt.*;
+
 /**
  * A csuszos mezot reprezentalo osztaly
  */
 public class SlipperyField extends Field
 {
+	public SlipperyField(){
+		SetCurrent(this);
+	}
+	public void SetCurrent(Field f) {
+		this.setBackground(Color.pink);
+	}
 	/**
 	 * Egy lada a mezore kerul, es lecsokken a sulya.
 	 * Utana ugy viselkedik mint egy sima mezo.

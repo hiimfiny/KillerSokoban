@@ -54,6 +54,8 @@ public class Graphics {
 		menu.pack();
 	}
 
+
+
 	
 	private class NewGameListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {

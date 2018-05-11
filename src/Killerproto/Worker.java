@@ -9,7 +9,7 @@ public class Worker implements Thing
 {
 	private Field current;			//A mezo amin a munkas epp all
     private int power;				//A munkas ereje
-	private char character;			//A munkast reprezentalo karakter
+	private char character;		//A munkast reprezentalo karakter
 
 	/**
 	 * A munkas konstruktora
@@ -18,6 +18,7 @@ public class Worker implements Thing
 	public Worker(char c) {
 		character=c;
 		power=4;
+
 	}
 
 	/**

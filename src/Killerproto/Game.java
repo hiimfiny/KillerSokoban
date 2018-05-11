@@ -1,4 +1,6 @@
 package Killerproto;
+import javafx.collections.transformation.SortedList;
+
 import java.io.*;
 import java.util.*;
 
@@ -10,9 +12,10 @@ public class Game
 	Graphics graphic;
 	public static boolean end=false;			//A jatek veget jelzo valtozo
 	private WareHouse warehouse;				//A jatek raktara
-	private List<Player> players;				//A jatekot jatszo jatekosok
+	private List<Player> players = new ArrayList<Player>();				//A jatekot jatszo jatekosok
 	private static  Worker actualWorker;		//A jelenleg aktiv munkas
 	static boolean endMapRead=false;			//A beolvasas veget jelzo valtozo
+	private List<Worker> workers = new ArrayList<>();
 
 	/**
 	 * A jelenleg aktiv munkast kerdezi le
@@ -35,10 +38,15 @@ public class Game
 	}
 
     public void NewGame(){
-    	//players.add(new Player("player1"));
-    	//players.add(new Player("player2"));
+        Player sanyi = new Player("Sanyi");
+        players.add(sanyi);
+        Player pali = new Player("Pali");
+        players.add(pali);
+
+    	
+
     	warehouse=new WareHouse();
-    	warehouse.readMap("testMap2.txt");
+    	warehouse.readMap("testMap5.txt");
     	graphic=new Graphics(this);
     	graphic.showMap();
     	System.out.println("ja");

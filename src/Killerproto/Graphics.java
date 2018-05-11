@@ -125,26 +125,30 @@ public class Graphics {
 		end.pack();
 		
 	}
-	
-	
-	public void showMap() {
-		JFrame mainFrame=new JFrame();
-		mainFrame.setPreferredSize(new Dimension(map.getS()*50,map.getS()*50));
-		JPanel pane=new JPanel();
-		pane.setLayout(new GridLayout(map.getS(),map.getS()));
-		for(int i=0;i<map.getS();i++) {
-			for(int j=0;j<map.getS();j++) {
+
+	public void loadMap() {
+		JFrame mainFrame = new JFrame();
+		mainFrame.setPreferredSize(new Dimension(map.getS() * 50, map.getS() * 50));
+		JPanel pane = new JPanel();
+		pane.setLayout(new GridLayout(map.getS(), map.getS()));
+		for (int i = 0; i < map.getS(); i++) {
+			for (int j = 0; j < map.getS(); j++) {
 				pane.add(map.map[i][j]);
-				map.map[i][j].setEnabled(false);
+				//map.map[i][j].setEnabled(false);
 			}
 		}
+		mainFrame.add(pane);
+		mainFrame.setVisible(true);
+		mainFrame.pack();
+	}
+	
+	public void showMap() {
+
 		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Up).setEnabled(true);
 		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Down).setEnabled(true);
 		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Left).setEnabled(true);
 		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Right).setEnabled(true);
-		mainFrame.add(pane);
-		mainFrame.setVisible(true);
-		mainFrame.pack();
+
 		
 	}
 	

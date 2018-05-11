@@ -135,8 +135,13 @@ public class Graphics {
 		for(int i=0;i<map.getS();i++) {
 			for(int j=0;j<map.getS();j++) {
 				pane.add(map.map[i][j]);
+				map.map[i][j].setEnabled(false);
 			}
 		}
+		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Up).setEnabled(true);
+		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Down).setEnabled(true);
+		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Left).setEnabled(true);
+		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Right).setEnabled(true);
 		mainFrame.add(pane);
 		mainFrame.setVisible(true);
 		mainFrame.pack();

@@ -20,7 +20,9 @@ public class Worker implements Thing
 		power=4;
 
 	}
-
+	public Field getCurrentField(){
+		return this.current;
+	}
 	/**
 	 * A munkas karakteret keredezi le
 	 * @return A munkas karaktere

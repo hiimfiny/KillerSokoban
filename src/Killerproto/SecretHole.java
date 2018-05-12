@@ -21,6 +21,13 @@ public class SecretHole extends Hole {
     	state=false;
     	this.setBackground(Color.cyan);
     }
+    
+    public boolean actualHere() {
+		if(state) return false;
+		if(Game.GetActualWorker()==null) return false;
+		if(Game.GetActualWorker()==currentThing) return true;
+		else return false;
+	}
 
 
     /**

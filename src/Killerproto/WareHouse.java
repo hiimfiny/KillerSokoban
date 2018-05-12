@@ -159,7 +159,7 @@ public class WareHouse extends JFrame {
 		for(int i=0;i<size;i++) {
 			for(int j=0;j<size;j++)
 			{
-				if(map[i][j].getText().equals("w")) {
+				if(map[i][j].actualHere()) {
 					x=i;
 					y=j;
 				}

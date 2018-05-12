@@ -36,12 +36,11 @@ public class Game
 	 */
 	public static void SetActualWorker(Worker w) {
 		actualWorker=w;
+		
 	}
 
 	public void switchWorkers(){
 		index = warehouse.getWorkers().indexOf(actualWorker);
-		System.out.println(index);
-		System.out.println(warehouse.getWorkers().size());
 		if(index==warehouse.getWorkers().size()-1){
 			SetActualWorker(warehouse.getWorkers().get(index-1));
 		    index--;
@@ -64,9 +63,7 @@ public class Game
     	warehouse.neighbors();
     	graphic=new Graphics(this);
     	graphic.loadMap();
-    	
-    	System.out.println("ja");
-    	
+    	    	
     }
     public void Play(){ }
     public void EndGame(){ }

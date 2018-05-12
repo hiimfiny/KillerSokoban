@@ -16,6 +16,11 @@ public class Field extends JButton{
 	/**
 	 * A mezo konstruktora
 	 */
+	
+	public boolean actualHere() {
+		if(Game.GetActualWorker()==currentThing) return true;
+		else return false;
+	}
 	public Field() {
 		neighbors=new HashMap<Direction,Field>();
 		this.setBackground(Color.cyan);
@@ -103,7 +108,7 @@ public class Field extends JButton{
     	}
     	if(currentThing==null) {
     		this.setBackground(Color.RED);
-    		this.setText("w");
+    		this.setText("W");
     		currentThing=w;
     		character='1';
 
@@ -129,7 +134,7 @@ public class Field extends JButton{
     	if(currentThing==null) {
     		currentThing=c;
     		this.setBackground(Color.YELLOW);
-    		this.setText("c");
+    		this.setText("C");
     		character='c';
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {

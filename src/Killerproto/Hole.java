@@ -35,5 +35,7 @@ public class Hole extends Field {
             f.Remove(w);
         }
     }
+    
+    
 
 }

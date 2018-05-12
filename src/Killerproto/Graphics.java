@@ -107,7 +107,8 @@ public class Graphics {
     }
     private class SwitchActionListener implements ActionListener{
 	    public void actionPerformed(ActionEvent e){
-            game.switchWorkers();
+           game.switchWorkers();
+           map.searchWorker();
         }
     }
 	

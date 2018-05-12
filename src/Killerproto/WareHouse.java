@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * A raktarat reprezentalo ostaly
  */
+
 public class WareHouse extends JFrame {
 	/**
 	 * 
@@ -31,6 +32,10 @@ public class WareHouse extends JFrame {
 
 	public List<Worker> getWorkers(){
 		return workers;
+	}
+
+	public void removeWorker(Worker w){
+		workers.remove(w);
 	}
 
 	/**

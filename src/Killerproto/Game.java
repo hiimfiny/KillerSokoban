@@ -58,7 +58,7 @@ public class Game
         players.add(pali);
 
     	warehouse=new WareHouse();
-    	warehouse.readMap("testMap5.txt");
+    	warehouse.readMap("Map.txt");
 
     	warehouse.neighbors();
     	graphic=new Graphics(this);

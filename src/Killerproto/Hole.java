@@ -9,9 +9,16 @@ public class Hole extends Field {
 
     /**
      * Egy lada lyukba eseset valostija meg. Ha a lada a lyukba esett akkor eltunik a palyarol
-     * @param c A lada ami a lyukba lep
-     * @param d Az irany amerre lep
+     * @paramc A lada ami a lyukba lep
+     * @paramd Az irany amerre lep
      */
+
+
+    public Hole(){
+        SetCurrent();
+    }
+
+
     public void SetCurrent() {
         this.setBackground(Color.black);
     }
@@ -29,11 +36,14 @@ public class Hole extends Field {
      * @param d Az irany amerre lep
      */
     public void Accept(Worker w, Direction d) {
-    	w =null;
+
     	Field f= neighbors.get(negDirection(d));
         if(f!=null) {
             f.Remove(w);
         }
+
+        w =null;
+
     }
     
     

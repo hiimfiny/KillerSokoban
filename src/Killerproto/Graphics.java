@@ -72,7 +72,7 @@ public class Graphics {
 	    }
 	}
 
-	private class MoveActionListener implements ActionListener{
+	private class MoveUpActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 
 			Game.GetActualWorker().Enters(map.map[map.x-1][map.y],Direction.Up);
@@ -80,6 +80,33 @@ public class Graphics {
 
 		}
 	}
+
+    private class MoveDownActionListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+
+            Game.GetActualWorker().Enters(map.map[map.x+1][map.y],Direction.Down);
+            map.searchWorker();
+
+        }
+    }
+
+    private class MoveLeftActionListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+
+            Game.GetActualWorker().Enters(map.map[map.x][map.y-1],Direction.Left);
+            map.searchWorker();
+
+        }
+    }
+
+    private class MoveRightActionListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+
+            Game.GetActualWorker().Enters(map.map[map.x][map.y+1],Direction.Right);
+            map.searchWorker();
+
+        }
+    }
 	
 	public void endFrame() {
 		JFrame end=new JFrame();
@@ -149,9 +176,22 @@ public class Graphics {
 			}
 		}
 		JButton up = new JButton("up");
-		up.addActionListener(new MoveActionListener());
+		up.addActionListener(new MoveUpActionListener());
+
+		JButton down = new JButton("down");
+		down.addActionListener(new MoveDownActionListener());
+
+		JButton right = new JButton("right");
+		right.addActionListener(new MoveRightActionListener());
+
+		JButton left = new JButton("left");
+		left.addActionListener(new MoveLeftActionListener());
+
 		splitPane.add(pane);
 		move.add(up);
+		move.add(down);
+		move.add(left);
+		move.add(right);
 
 		splitPane.add(move);
 		mainFrame.add(splitPane);

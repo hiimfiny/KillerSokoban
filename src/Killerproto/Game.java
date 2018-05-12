@@ -42,6 +42,7 @@ public class Game
 
 	public void switchWorkers(){
 		index = warehouse.getWorkers().indexOf(actualWorker);
+		
 		if(index==warehouse.getWorkers().size()-1){
 			SetActualWorker(warehouse.getWorkers().get(index-1));
 		    index--;
@@ -85,19 +86,7 @@ public class Game
 		end=false;
 		loadMap(wh);
 		wh.neighbors();
-
-		/*
-		while(!endMapRead) {
-			end=false;
-			loadMap(wh);		
-			wh.neighbors();
-			*/
-		while(!Game.end&&!endMapRead) {
-			//wh.showMap();
-			g.graphic.showMap();
-			g.GetActualWorker().getCurrentField().setEnabled(true);
-			wh.readCommand();
-		}
+		
 		}
 	/**
 	 * A tesztpalyak betolteset vegzi el

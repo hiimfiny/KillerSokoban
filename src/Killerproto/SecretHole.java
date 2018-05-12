@@ -129,6 +129,7 @@ public class SecretHole extends Hole {
     public void changeToFalse( ) {
         state = false;
         setBackground(Color.cyan);
+        this.setText("");
         character=',';
     }
     

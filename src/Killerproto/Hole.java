@@ -12,7 +12,9 @@ public class Hole extends Field {
      * @paramc A lada ami a lyukba lep
      * @paramd Az irany amerre lep
      */
-
+	public boolean actualHere() {
+		return false;
+	}
 
     public Hole(){
         SetCurrent();

@@ -33,6 +33,10 @@ public class WareHouse extends JFrame {
 	public List<Worker> getWorkers(){
 		return workers;
 	}
+	
+	public void removeAt(int i) {
+		workers.remove(i);
+	}
 
 	public void removeWorker(Worker w){
 		workers.remove(w);
@@ -171,6 +175,7 @@ public class WareHouse extends JFrame {
 					
 			}
 		}
+		
 	}
 
 	/**

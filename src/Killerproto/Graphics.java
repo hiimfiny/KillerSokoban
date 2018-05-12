@@ -72,36 +72,45 @@ public class Graphics {
 
 	private class MoveUpActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
-
+			
 			Game.GetActualWorker().Enters(map.map[map.x-1][map.y],Direction.Up);
 			map.searchWorker();
-
+			//game.switchWorkers();
+			
 		}
 	}
 
     private class MoveDownActionListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-
+        	
             Game.GetActualWorker().Enters(map.map[map.x+1][map.y],Direction.Down);
             map.searchWorker();
+            //game.switchWorkers();
+            
+           
 
         }
     }
 
     private class MoveLeftActionListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-
             Game.GetActualWorker().Enters(map.map[map.x][map.y-1],Direction.Left);
             map.searchWorker();
+            //game.switchWorkers();
+            
+           
 
         }
     }
 
     private class MoveRightActionListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-
+        	
             Game.GetActualWorker().Enters(map.map[map.x][map.y+1],Direction.Right);
             map.searchWorker();
+            //game.switchWorkers();
+            
+           
 
         }
     }

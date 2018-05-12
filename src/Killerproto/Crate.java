@@ -11,6 +11,7 @@ public class Crate implements Thing
     private Field target;			//A field ahova a ladának el kell érnie
     private int weight;				//A lada sulya
     private char character;			//A ladat reprezentali karakter
+    
 	/**
 	 * A lada konstruktora
 	 * @param i - A lada sulyat allitja be
@@ -61,7 +62,15 @@ public class Crate implements Thing
 	 * @param d Az irany amerre a ladat eltoljak
 	 */
     public void PushedBy(Crate c, Field f,Direction d) {
-    	f.Accept(this,d);    	
+    	if(Game.GetActualWorker().GetPower()>weight) {
+    		Game.GetActualWorker().setPower(-1*weight);
+    		f.Accept(this, d);
+    	}
+    	else {
+    		System.out.println("Push failed");
+    		return;
+    	}
+    	Game.GetActualWorker().setPower(weight);    	
     }
 
 	/**
@@ -74,12 +83,14 @@ public class Crate implements Thing
 	 */
     public void PushedBy(Worker w, Field f, Direction d) {
     	if(Game.GetActualWorker().GetPower()>weight) {
+    		Game.GetActualWorker().setPower(-1*weight);
     		f.Accept(this, d);
     	}
     	else {
     		System.out.println("Push failed");
     		return;
     	}
+    	Game.GetActualWorker().setPower(weight);
     }
 
 	/**
@@ -87,7 +98,7 @@ public class Crate implements Thing
 	 * @param sf A ragados mezo amire erkezik
 	 */
 	public void ChangeWeight(StickyField sf) {
-    	weight=5;
+    	weight=3;
     	System.out.println("Crates weight increased");
     }
 

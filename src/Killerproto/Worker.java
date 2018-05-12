@@ -64,6 +64,10 @@ public class Worker implements Thing
     public void PushedBy(Crate c, Field f,Direction d) {
     	f.Accept(this, d);
     }
+    
+    public void setPower(int i) {
+    	power+=i;
+    }
 
 	/**
 	 * Egy munkas eltolja a munkast. Ha az aktualis jatekos tolja, akkor nem torenik semmi.

@@ -18,6 +18,7 @@ public class Field extends JButton{
 	 */
 	
 	public boolean actualHere() {
+		if(Game.GetActualWorker()==null) return false;
 		if(Game.GetActualWorker()==currentThing) return true;
 		else return false;
 	}

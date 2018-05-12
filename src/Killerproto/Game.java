@@ -37,6 +37,16 @@ public class Game
 		actualWorker=w;
 	}
 
+	public void switchWorkers(){
+		int index = warehouse.getWorkers().indexOf(actualWorker);
+		System.out.println(index);
+		System.out.println(warehouse.getWorkers().size());
+		if(index==warehouse.getWorkers().size()-1){
+			index=-1;
+		}
+		SetActualWorker(warehouse.getWorkers().get(index+1));
+	}
+
     public void NewGame(){
         Player sanyi = new Player("Sanyi");
         players.add(sanyi);
@@ -45,6 +55,7 @@ public class Game
 
     	warehouse=new WareHouse();
     	warehouse.readMap("testMap5.txt");
+
     	warehouse.neighbors();
     	graphic=new Graphics(this);
     	graphic.loadMap();

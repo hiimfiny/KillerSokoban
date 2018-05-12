@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,12 +22,17 @@ public class WareHouse extends JFrame {
 	private SecretHole secret;		//A tesztben szereplo titkos lyuk
 	private Switch sw;				//A tesztben szereplo kapcsolo
 	static int x,y;					//A kijelolt munkas koordinataja
+	private List<Worker> workers = new ArrayList<>();
 
 	public int getS() {
 		return size;
 		
 	}
-	
+
+	public List<Worker> getWorkers(){
+		return workers;
+	}
+
 	/**
 	 * A fajlolvasast kezelo fuggveny
 	 * Vegigmegy a fajl sorain, es letrehozza a mezoket, majd vegigmegy a thingeken is es beallitja azokat
@@ -59,13 +65,16 @@ public class WareHouse extends JFrame {
 								break;
 							case "8":
 								Worker w=new Worker('1');
+								workers.add(w);
 								Game.SetActualWorker(w);
 								map[i - 7][j].setCurrentThing(w);
 								x=i-size;
 								y=j;
 								break;
 							case "9":
-								map[i - size][j].setCurrentThing(new Worker('2'));
+								Worker w2 = new Worker('2');
+								map[i - size][j].setCurrentThing(w2);
+								workers.add(w2);
 								break;
 							case "n":
 								map[i-size][j].setCurrentThing(new Crate(6));

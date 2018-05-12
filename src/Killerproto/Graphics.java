@@ -105,6 +105,11 @@ public class Graphics {
 
         }
     }
+    private class SwitchActionListener implements ActionListener{
+	    public void actionPerformed(ActionEvent e){
+            game.switchWorkers();
+        }
+    }
 	
 	public void endFrame() {
 		JFrame end=new JFrame();
@@ -166,6 +171,7 @@ public class Graphics {
 		mainFrame.setPreferredSize(new Dimension(map.getS() * 50, map.getS() * 50));
 		JPanel pane = new JPanel();
 		JPanel move = new JPanel();
+		move.setLayout(new GridLayout(2,3));
 		pane.setLayout(new GridLayout(map.getS(), map.getS()));
 		for (int i = 0; i < map.getS(); i++) {
 			for (int j = 0; j < map.getS(); j++) {
@@ -175,20 +181,21 @@ public class Graphics {
 		}
 		JButton up = new JButton("up");
 		up.addActionListener(new MoveUpActionListener());
-
 		JButton down = new JButton("down");
 		down.addActionListener(new MoveDownActionListener());
-
 		JButton right = new JButton("right");
 		right.addActionListener(new MoveRightActionListener());
-
 		JButton left = new JButton("left");
 		left.addActionListener(new MoveLeftActionListener());
-
+        JButton wswitch = new JButton("switch");
+        wswitch.addActionListener(new SwitchActionListener());
+        JButton check = new JButton("check");
 		splitPane.add(pane);
+		move.add(check);
 		move.add(up);
+		move.add(wswitch);
+        move.add(left);
 		move.add(down);
-		move.add(left);
 		move.add(right);
 
 		splitPane.add(move);

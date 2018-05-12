@@ -181,15 +181,21 @@ public class Graphics {
 		}
 		JButton up = new JButton("up");
 		up.addActionListener(new MoveUpActionListener());
+
 		JButton down = new JButton("down");
 		down.addActionListener(new MoveDownActionListener());
+
 		JButton right = new JButton("right");
 		right.addActionListener(new MoveRightActionListener());
+
 		JButton left = new JButton("left");
 		left.addActionListener(new MoveLeftActionListener());
+
         JButton wswitch = new JButton("switch");
         wswitch.addActionListener(new SwitchActionListener());
+
         JButton check = new JButton("check");
+
 		splitPane.add(pane);
 		move.add(check);
 		move.add(up);

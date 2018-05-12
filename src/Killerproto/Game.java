@@ -16,6 +16,7 @@ public class Game
 	private static  Worker actualWorker;		//A jelenleg aktiv munkas
 	static boolean endMapRead=false;			//A beolvasas veget jelzo valtozo
 	private List<Worker> workers = new ArrayList<>();
+	private int index;
 
 	/**
 	 * A jelenleg aktiv munkast kerdezi le
@@ -38,13 +39,17 @@ public class Game
 	}
 
 	public void switchWorkers(){
-		int index = warehouse.getWorkers().indexOf(actualWorker);
+		index = warehouse.getWorkers().indexOf(actualWorker);
 		System.out.println(index);
 		System.out.println(warehouse.getWorkers().size());
 		if(index==warehouse.getWorkers().size()-1){
-			index=-1;
+			SetActualWorker(warehouse.getWorkers().get(index-1));
+		    index--;
 		}
-		SetActualWorker(warehouse.getWorkers().get(index+1));
+		else {
+            SetActualWorker(warehouse.getWorkers().get(index+1));
+            index++;
+        }
 	}
 
     public void NewGame(){

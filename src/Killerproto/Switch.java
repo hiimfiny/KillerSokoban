@@ -66,6 +66,13 @@ public class Switch extends Field{
         	secretHole.setBackground(java.awt.Color.BLACK);
         }
     }
+    
+    public void Remove(Thing t) {
+    	this.setBackground(Color.GREEN);
+    	setCurrentThing(null);
+    	this.setText("");
+    	secretHole.changeToFalse();
+    }
 
 
     /**

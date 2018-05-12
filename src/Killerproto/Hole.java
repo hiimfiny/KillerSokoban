@@ -40,9 +40,8 @@ public class Hole extends Field {
     	Field f= neighbors.get(negDirection(d));
         if(f!=null) {
             f.Remove(w);
-        }
-        
-       // w =null;
+        }        
+        w =null;
 
     }
     

@@ -111,6 +111,7 @@ public class Field extends JButton{
     		this.setText("W");
     		currentThing=w;
     		character='1';
+    		
 
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {

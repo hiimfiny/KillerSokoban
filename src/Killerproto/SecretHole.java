@@ -48,6 +48,8 @@ public class SecretHole extends Hole {
                 getThing().PushedBy(c, neighbors.get(d), d);
             }
             if(getThing()==null) {
+            	this.setBackground(Color.YELLOW);
+            	this.setText("c");
             	currentThing=c;
             	character=c.getChar();
                 Field f= neighbors.get(negDirection(d));
@@ -84,6 +86,8 @@ public class SecretHole extends Hole {
             }
 
             if(getThing()==null) {
+            	this.setBackground(Color.RED);
+            	this.setText("W");
                 currentThing=w;
                 character=w.getChar();
 
@@ -102,6 +106,8 @@ public class SecretHole extends Hole {
     public void Remove(Thing t) {
     	character=',';
     	currentThing=null;
+    	this.setBackground(Color.cyan);
+    	this.setText("");
     }
 
     /**

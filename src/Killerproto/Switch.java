@@ -1,6 +1,6 @@
 package Killerproto;
 
-
+import java.awt.Color;
 
 /**
  * A kapcsolot reprezentalo osztaly
@@ -20,6 +20,23 @@ public class Switch extends Field{
     public void SetCurrent(Field f) {
        this.setBackground(java.awt.Color.GREEN);
     }
+    
+    public void Accept(Worker w,Direction d) {
+		if(currentThing!=null) {
+    		currentThing.PushedBy(w, neighbors.get(d), d);
+    	}
+    	if(currentThing==null) {
+    		this.setBackground(Color.RED);
+    		this.setText("W");
+    		currentThing=w;
+    		character='1';
+
+    		Field f= neighbors.get(negDirection(d));
+    		if(f!=null) {
+    			f.Remove(w);
+    		}
+    	}
+    }
 
     /**
      * Egy lada lep a kapcsolora, es ez kinyitja a hozza tartozo titkos lyukat.
@@ -35,6 +52,8 @@ public class Switch extends Field{
         }
 
         if(getThing()==null) {
+        	this.setBackground(java.awt.Color.YELLOW);
+        	this.setText("C");
         	currentThing=c;
         	character=c.getChar();
             Field f= neighbors.get(negDirection(d));
@@ -55,6 +74,8 @@ public class Switch extends Field{
      */
     public void Remove(Worker w) {
     	character='s';
+    	this.setBackground(java.awt.Color.GREEN);
+    	this.setText("");
     	setCurrentThing(null);
     }
 
@@ -64,6 +85,8 @@ public class Switch extends Field{
      */
     public void Remove(Crate c)
     {
+    	this.setBackground(java.awt.Color.GREEN);
+    	this.setText("");
         secretHole.changeToFalse();
         secretHole.setBackground(java.awt.Color.cyan);
         setCurrentThing(null);

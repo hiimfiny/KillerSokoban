@@ -25,6 +25,7 @@ public class Game
 	public static Worker GetActualWorker() {
 		return actualWorker;
 	}
+
 	
 	public WareHouse getwh() {
 		return warehouse;

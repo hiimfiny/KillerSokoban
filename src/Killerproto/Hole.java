@@ -41,8 +41,8 @@ public class Hole extends Field {
         if(f!=null) {
             f.Remove(w);
         }
-
-        w =null;
+        
+       // w =null;
 
     }
     

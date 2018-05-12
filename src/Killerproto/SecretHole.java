@@ -16,6 +16,11 @@ public class SecretHole extends Hole {
     public void setSwitch(Switch s) {
     	sw=s;
     }
+    
+    public SecretHole() {
+    	state=false;
+    	this.setBackground(Color.cyan);
+    }
 
 
     /**
@@ -29,11 +34,12 @@ public class SecretHole extends Hole {
     {
         if(state)
         {
-            c = null;
+            
             Field f= neighbors.get(negDirection(d));
             if(f!=null) {
                 f.Remove(c);
             }
+            c = null;
         }
         else
         {
@@ -63,11 +69,12 @@ public class SecretHole extends Hole {
     {
         if(state)
         {
-            w = null;
+           
             Field f= neighbors.get(negDirection(d));
             if(f!=null) {
                 f.Remove(w);
             }
+            w = null;
         }
         else
         {
@@ -103,6 +110,7 @@ public class SecretHole extends Hole {
     public void changeToTrue() {
     	character='o';
         state = true;
+        setBackground(Color.BLACK);
         if(getThing()!=null)
         {
             Remove(getThing());
@@ -114,6 +122,7 @@ public class SecretHole extends Hole {
      */
     public void changeToFalse( ) {
         state = false;
+        setBackground(Color.cyan);
         character=',';
     }
     

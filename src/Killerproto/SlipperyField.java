@@ -42,6 +42,8 @@ public class SlipperyField extends Field
 	 * @param t A thing amit leszed a mezorol
 	 */
 	public void Remove(Thing t) {
+		this.setBackground(Color.pink);
+		this.setText("");
         character='-';
         currentThing=null;
     }

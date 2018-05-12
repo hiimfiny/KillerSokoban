@@ -43,6 +43,8 @@ public class StickyField extends Field
 	 * @param t A thing amit leszed a mezorol
 	 */
     public void Remove(Thing t) {
+    	this.setBackground(Color.ORANGE);
+    	this.setText("");
         character='+';
         currentThing=null;
     }

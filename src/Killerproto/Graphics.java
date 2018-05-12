@@ -12,10 +12,8 @@ public class Graphics {
 	
 	public Graphics(Game g) {
 		game=g;
-		map=g.getwh();
-		
-	}
-	
+		map=g.getwh();		
+	}	
 	
 	public void showMenu() {
 		JFrame menu=new JFrame();

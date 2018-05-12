@@ -1,5 +1,5 @@
 package Killerproto;
-import javafx.collections.transformation.SortedList;
+
 
 import java.io.*;
 import java.util.*;
@@ -45,8 +45,10 @@ public class Game
 
     	warehouse=new WareHouse();
     	warehouse.readMap("testMap5.txt");
+    	warehouse.neighbors();
     	graphic=new Graphics(this);
     	graphic.loadMap();
+    	
     	System.out.println("ja");
     	
     }

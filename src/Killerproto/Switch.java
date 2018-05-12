@@ -1,6 +1,6 @@
 package Killerproto;
 
-import com.sun.prism.paint.Color;
+
 
 /**
  * A kapcsolot reprezentalo osztaly

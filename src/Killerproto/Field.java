@@ -103,6 +103,7 @@ public class Field extends JButton{
     	}
     	if(currentThing==null) {
     		this.setBackground(Color.RED);
+    		this.setText("w");
     		currentThing=w;
     		character='1';
 
@@ -127,7 +128,8 @@ public class Field extends JButton{
     	}
     	if(currentThing==null) {
     		currentThing=c;
-    		this.setBackground(Color.BLACK);
+    		this.setBackground(Color.YELLOW);
+    		this.setText("c");
     		character='c';
     		Field f= neighbors.get(negDirection(d));
     		if(f!=null) {
@@ -144,6 +146,8 @@ public class Field extends JButton{
 	 * @param t A thing amit leszed a mezorol
 	 */
     public void Remove(Thing t) {
+    	this.setBackground(Color.CYAN);
+    	this.setText("");
         character='.';
         currentThing=null;
     }

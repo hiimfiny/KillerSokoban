@@ -154,8 +154,7 @@ public class Field extends JButton{
     		if(this.target) {
     			System.out.println("A lada a helyen van!");
     			Remove(c);
-
-
+				getNeighbour(negDirection(d)).getNeighbour(negDirection(d)).getThing().addPoints(20);
         	}
     	}
     }

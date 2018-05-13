@@ -161,8 +161,8 @@ public class Graphics {
 		JPanel scores=new JPanel();
 		scores.setLayout(new GridLayout(2,2));
 
-
-
+		game.countPoints();
+		System.out.println(game.getPoints(0));
 		JLabel p1=new JLabel();
 		p1.setText("player1 score");
 		scores.add(p1);

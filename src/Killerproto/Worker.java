@@ -87,7 +87,7 @@ public class Worker implements Thing
     
     public void setPower(int i) {
     	power+=i;
-    	System.out.println(power);
+    	//System.out.println(power);
     }
 
 	/**

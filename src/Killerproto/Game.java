@@ -14,7 +14,6 @@ public class Game
 	private static  Worker actualWorker;		//A jelenleg aktiv munkas
 	static boolean killed=false;			
 	private List<Worker> workers = new ArrayList<>();
-	private List<Crate> crates = new ArrayList<>();
 	private int index;
 	private int player;
 

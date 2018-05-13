@@ -50,7 +50,7 @@ public class Switch extends Field{
     {
         if(getThing()!=null)
         {
-            getThing().PushedBy(c, neighbors.get(d), d);
+            currentThing.PushedBy(c, neighbors.get(d), d);
         }
 
         if(getThing()==null) {

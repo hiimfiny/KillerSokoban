@@ -89,7 +89,7 @@ public class Graphics {
 
 	private void close(ActionEvent e){
 		JFrame jf= (JFrame) SwingUtilities.getRoot((Component)e.getSource());
-		jf.setVisible(false);
+		jf.setEnabled(false);
 		endFrame();
 	}
 	

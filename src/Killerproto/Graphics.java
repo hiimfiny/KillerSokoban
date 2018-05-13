@@ -53,7 +53,11 @@ public class Graphics {
 	}
 
 
-
+	private void close(ActionEvent e){
+		JFrame jf= (JFrame) SwingUtilities.getRoot((Component)e.getSource());
+		jf.setVisible(false);
+		endFrame();
+	}
 	
 	private class NewGameListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
@@ -63,10 +67,7 @@ public class Graphics {
 	
 	private class CloseListener implements ActionListener{	  
 	    public void actionPerformed(ActionEvent e) {	        
-	       // System.exit(0);
-	    	JFrame jf= (JFrame) SwingUtilities.getRoot((Component)e.getSource());
-			jf.setVisible(false);
-	    	endFrame();
+	       close(e);
 	    }
 	}
 
@@ -81,7 +82,7 @@ public class Graphics {
 			Game.GetActualWorker().select();
 			
 			//game.switchWorkers();
-
+			if(map.map[0][0].getCrateCount()==0){close(e); }
 			}
 		}
 	}
@@ -95,6 +96,8 @@ public class Graphics {
             //game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
+				if(map.map[0][0].getCrateCount()==0){close(e); }
+
         	}          
 
         }
@@ -109,6 +112,7 @@ public class Graphics {
             //game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
+				if(map.map[0][0].getCrateCount()==0){close(e); }
             }          
 
         }
@@ -123,6 +127,7 @@ public class Graphics {
             //game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
+				if(map.map[0][0].getCrateCount()==0){close(e); }
         	} 
 
 

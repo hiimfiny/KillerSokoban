@@ -32,8 +32,9 @@ public class StickyField extends Field
     		if(f!=null) {
     			f.Remove(c);
     		}
-			if(this==c.getTargetField()) {
+			if(this.target) {
 				System.out.println("A lada a helyen van!");
+				Remove(c);
 			}
     	}
     }

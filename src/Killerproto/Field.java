@@ -11,12 +11,17 @@ public class Field extends JButton{
 
 	protected Map<Direction,Field> neighbors;			//Az adott mezo szomszedjait tarolja
 	protected Thing currentThing;						//Az adott mezon levo
-	protected char character;							//A mezot reprezentalo karakter
-
+	protected char character;						//A mezot reprezentalo karakter
+	protected boolean target;
 	/**
 	 * A mezo konstruktora
 	 */
-	
+
+	public void setTarget(){
+		target=true;
+		this.setBackground(Color.MAGENTA);
+	}
+
 	public boolean actualHere() {
 		if(Game.GetActualWorker()==null) return false;
 		if(Game.GetActualWorker()==currentThing) return true;
@@ -25,6 +30,7 @@ public class Field extends JButton{
 	public Field() {
 		neighbors=new HashMap<Direction,Field>();
 		this.setBackground(Color.cyan);
+
 	}
 
 	public void SetCurrent(Field f) {
@@ -145,8 +151,9 @@ public class Field extends JButton{
     		if(f!=null) {
     			f.Remove(c);
     		}
-    		if(this==c.getTargetField()) {
+    		if(this.target) {
     			System.out.println("A lada a helyen van!");
+    			Remove(c);
         	}
     	}
     }
@@ -157,7 +164,8 @@ public class Field extends JButton{
 	 * @param t A thing amit leszed a mezorol
 	 */
     public void Remove(Thing t) {
-    	this.setBackground(Color.CYAN);
+    	if(target){this.setBackground(Color.MAGENTA);}
+    	else this.setBackground(Color.CYAN);
     	this.setText("");
         character='.';
         currentThing=null;

@@ -134,6 +134,8 @@ public class WareHouse extends JFrame {
 								map[i][j] = sw;
 								map[i][j].setChar('s');
 								break;
+							case "t":
+								map[i][j].setTarget();
 						}
 					}
 					i++;

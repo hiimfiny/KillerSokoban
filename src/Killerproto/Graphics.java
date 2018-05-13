@@ -77,7 +77,7 @@ public class Graphics {
 			
 			map.searchWorker();
 			Game.GetActualWorker().unselect();
-			game.NextPlayer();
+			//game.NextPlayer();
 			Game.GetActualWorker().select();
 			
 			//game.switchWorkers();
@@ -91,7 +91,7 @@ public class Graphics {
             Game.GetActualWorker().Enters(map.map[map.x+1][map.y],Direction.Down);
             map.searchWorker();
             Game.GetActualWorker().unselect();
-            game.NextPlayer();
+            //game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
         	}          
@@ -105,7 +105,7 @@ public class Graphics {
             Game.GetActualWorker().Enters(map.map[map.x][map.y-1],Direction.Left);
             map.searchWorker();
             Game.GetActualWorker().unselect();
-            game.NextPlayer();
+            //game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
             }          
@@ -119,7 +119,7 @@ public class Graphics {
             Game.GetActualWorker().Enters(map.map[map.x][map.y+1],Direction.Right);
             map.searchWorker();
             Game.GetActualWorker().unselect();
-            game.NextPlayer();
+            //game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
         	} 

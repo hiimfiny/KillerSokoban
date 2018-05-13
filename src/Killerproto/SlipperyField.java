@@ -20,22 +20,23 @@ public class SlipperyField extends Field
 	 * @param d Az irany amerre lep
 	 */
     public void Accept(Crate c, Direction d) {
-    	c.ChangeWeight(this);
-    	if(getThing()!=null) {
-    		getThing().PushedBy(c, neighbors.get(d), d);
-    	}
-    	
-    	if(getThing()==null) {
-    		setCurrentThing(c);
-    		Field f= neighbors.get(negDirection(d));
-    		if(f!=null) {
-    			f.Remove(c);
-    		}
-			if(this==c.getTargetField()) {
-				System.out.println("A lada a helyen van!");
+		c.ChangeWeight(this);
+		if (getThing() != null) {
+			getThing().PushedBy(c, neighbors.get(d), d);
+		}
+
+		if (getThing() == null) {
+			setCurrentThing(c);
+			Field f = neighbors.get(negDirection(d));
+			if (f != null) {
+				f.Remove(c);
 			}
-    	}
-    }
+			if (this.target) {
+				System.out.println("A lada a helyen van!");
+				Remove(c);
+			}
+		}
+	}
 
 	/**
 	 * Lekerul az adott thing a mezorol

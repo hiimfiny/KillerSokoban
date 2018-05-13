@@ -41,7 +41,8 @@ public class SecretHole extends Hole {
     {
         if(state)
         {
-            
+            crateCount--;
+            System.out.println(crateCount);
             Field f= neighbors.get(negDirection(d));
             if(f!=null) {
                 f.Remove(c);
@@ -78,12 +79,14 @@ public class SecretHole extends Hole {
     {
         if(state)
         {
-           
             Field f= neighbors.get(negDirection(d));
             if(f!=null) {
                 f.Remove(w);
             }
-            w = null;
+            w.SetCurrent(this);
+            this.setBackground(Color.BLACK);
+            this.setText("");
+            w =null;
         }
         else
         {
@@ -108,16 +111,19 @@ public class SecretHole extends Hole {
         }
     }
 
+
     /**
      * Lekerul az adott thing a titkos lyukrol
      * @param t A thing amit leszed a mezorol
      */
+    /*
     public void Remove(Thing t) {
     	character=',';
     	currentThing=null;
     	this.setBackground(Color.cyan);
     	this.setText("");
     }
+    */
 
     /**
      * Kinyilik a titkos lyuk

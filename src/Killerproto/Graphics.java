@@ -81,6 +81,7 @@ public class Graphics {
 			Game.GetActualWorker().select();
 			
 			//game.switchWorkers();
+
 			}
 		}
 	}
@@ -123,8 +124,7 @@ public class Graphics {
             Game.GetActualWorker().select();
             //game.switchWorkers();
         	} 
-        	
-           
+
 
         }
     }

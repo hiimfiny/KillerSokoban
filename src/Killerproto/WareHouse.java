@@ -24,7 +24,7 @@ public class WareHouse extends JFrame {
 	private Switch sw;				//A tesztben szereplo kapcsolo
 	static int x,y;					//A kijelolt munkas koordinataja
 	private List<Worker> workers = new ArrayList<>();
-	private int crateCounter=0;
+
 
 	public int getS() {
 		return size;
@@ -77,7 +77,7 @@ public class WareHouse extends JFrame {
 								break;
 							case "7":
 								map[i - size][j].setCurrentThing(new Crate(2));
-								crateCounter++;
+								map[i-size][j].addCrate();
 								break;
 							case "8":
 								Worker w=new Worker('1');

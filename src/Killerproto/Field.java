@@ -13,6 +13,7 @@ public class Field extends JButton{
 	protected Thing currentThing;						//Az adott mezon levo
 	protected char character;						//A mezot reprezentalo karakter
 	protected boolean target;
+	protected static int crateCount=0;
 	/**
 	 * A mezo konstruktora
 	 */
@@ -36,6 +37,10 @@ public class Field extends JButton{
 	public void SetCurrent(Field f) {
 		this.setBackground(Color.CYAN);
 	}
+
+	public void addCrate(){crateCount++;}
+
+	public int getCrateCount(){return crateCount;}
 
 	/**
 	 * A mezot reprezentalo karakter lekerdezese
@@ -154,6 +159,8 @@ public class Field extends JButton{
     		if(this.target) {
     			System.out.println("A lada a helyen van!");
     			Remove(c);
+    			crateCount--;
+    			System.out.println(crateCount);
 				getNeighbour(negDirection(d)).getNeighbour(negDirection(d)).getThing().addPoints(20);
         	}
     	}
@@ -167,6 +174,8 @@ public class Field extends JButton{
     public void Remove(Thing t) {
     	if(target){this.setBackground(Color.MAGENTA);}
     	else this.setBackground(Color.CYAN);
+		//System.out.println("faszomfield");
+
     	this.setText("");
         character='.';
         currentThing=null;

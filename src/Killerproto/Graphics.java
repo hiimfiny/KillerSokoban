@@ -63,11 +63,23 @@ public class Graphics {
 			JPanel helpPanel = new JPanel();
 			help.add(helpPanel);
 
-			JTextField helpText = new JTextField();
-			helpText.setText("A switch gombbal vÃ¡lthatunk a munkasaink kozott \n"
-			+ "a check gombbal atadhatjuk a korunket az ellenfelnek \n"
-					+ "Jatek elinditasa utan egerrel a nyilakra kattintva tudsz mozogni"
-			);
+
+			JTextArea helpText = new JTextArea();
+			helpText.setText("Használati útmutató:\n\n" + 
+							"A játék indítása után egérrel a navigáló gombokkal tudjuk mozgatni a munkásainkat\n" +
+							"A switch gombbal válthatunk a munkásaink között\n" + 
+							"A check gombbal átadhatjuk a körünket az ellenfélnek\n\n" +
+							"Jelölések magyarázata:\n\n" +
+							"W: egy munkás, a párok egyezõ színûek\n" +
+							"Ws: az aktuális játékos\n" +
+							"C: sárga színû láda\n" +
+							"P: falak/oszlopok\n" +
+							"Fekete mezõ: lyuk\n" +
+							"Zöld mezõ: lyukat aktiváló kapcsoló" +
+							"Narancssárga mezõ: ragacsos mezõ\n" +
+							"Világosrózsaszín mezõ: csúszós mezõ\n" +
+							"Sötét rózsaszín mezõ: a ládák helye ahova el kell juttatni");			
+			
 
 			help.add(helpText);
 

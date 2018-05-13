@@ -14,7 +14,9 @@ public class Graphics {
 		game=g;
 		map=g.getwh();
 	}	
-	
+	/**
+	KezdÅ‘ menÃ¼
+	 */
 	public void showMenu() {
 		JFrame menu=new JFrame();
 		menu.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -53,6 +55,9 @@ public class Graphics {
 		menu.pack();
 	}
 
+	/**
+	 * A help gomb megnyomÃ¡sÃ¡ra lÃ¡thatjuk a leÃ­rÃ¡st
+	 */
 	private class HelpListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			JFrame help=new JFrame();
@@ -65,20 +70,20 @@ public class Graphics {
 
 
 			JTextArea helpText = new JTextArea();
-			helpText.setText("Használati útmutató:\n\n" + 
-							"A játék indítása után egérrel a navigáló gombokkal tudjuk mozgatni a munkásainkat\n" +
-							"A switch gombbal válthatunk a munkásaink között\n" + 
-							"A check gombbal átadhatjuk a körünket az ellenfélnek\n\n" +
-							"Jelölések magyarázata:\n\n" +
-							"W: egy munkás, a párok egyezõ színûek\n" +
-							"Ws: az aktuális játékos\n" +
-							"C: sárga színû láda\n" +
+			helpText.setText("Hasznï¿½lati ï¿½tmutatï¿½:\n\n" + 
+							"A jï¿½tï¿½k indï¿½tï¿½sa utï¿½n egï¿½rrel a navigï¿½lï¿½ gombokkal tudjuk mozgatni a munkï¿½sainkat\n" +
+							"A switch gombbal vï¿½lthatunk a munkï¿½saink kï¿½zï¿½tt\n" + 
+							"A check gombbal ï¿½tadhatjuk a kï¿½rï¿½nket az ellenfï¿½lnek\n\n" +
+							"Jelï¿½lï¿½sek magyarï¿½zata:\n\n" +
+							"W: egy munkï¿½s, a pï¿½rok egyezï¿½ szï¿½nï¿½ek\n" +
+							"Ws: az aktuï¿½lis jï¿½tï¿½kos\n" +
+							"C: sï¿½rga szï¿½nï¿½ lï¿½da\n" +
 							"P: falak/oszlopok\n" +
-							"Fekete mezõ: lyuk\n" +
-							"Zöld mezõ: lyukat aktiváló kapcsoló" +
-							"Narancssárga mezõ: ragacsos mezõ\n" +
-							"Világosrózsaszín mezõ: csúszós mezõ\n" +
-							"Sötét rózsaszín mezõ: a ládák helye ahova el kell juttatni");			
+							"Fekete mezï¿½: lyuk\n" +
+							"Zï¿½ld mezï¿½: lyukat aktivï¿½lï¿½ kapcsolï¿½" +
+							"Narancssï¿½rga mezï¿½: ragacsos mezï¿½\n" +
+							"Vilï¿½gosrï¿½zsaszï¿½n mezï¿½: csï¿½szï¿½s mezï¿½\n" +
+							"Sï¿½tï¿½t rï¿½zsaszï¿½n mezï¿½: a lï¿½dï¿½k helye ahova el kell juttatni");			
 			
 
 			help.add(helpText);
@@ -107,6 +112,10 @@ public class Graphics {
 	    }
 	}
 
+	/**
+	 * irÃ¡ny gombok lenyomÃ¡sÃ¡ra hÃ­vodik a kÃ¶vetkezÅ‘ 4 listener, lÃ©pÃ©senkÃ©nt mÃ¡sik jÃ¡tÃ©kos jÃ¶n
+	 * ellenÅ‘rzi hogy van e mÃ©g lÃ¡da, etc.
+	 */
 	private class MoveUpActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			if(map.x!=-1) {
@@ -171,18 +180,29 @@ public class Graphics {
 
         }
     }
-    private class SwitchActionListener implements ActionListener{
+
+	/**
+	 * munkÃ¡svÃ¡ltÃ¡s
+	 */
+	private class SwitchActionListener implements ActionListener{
 	    public void actionPerformed(ActionEvent e){
            game.switchWorkers();
            map.searchWorker();
         }
     }
-    private class CheckActionListener implements ActionListener{
+
+	/**
+	 * jÃ¡tÃ©kos vÃ¡ltÃ¡s
+	 */
+	private class CheckActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
 			game.NextPlayer();
 		}
 	}
-	
+
+	/**
+	 * zÃ¡rÃ³kÃ©p
+	 */
 	public void endFrame() {
 		JFrame end=new JFrame();
 		end.setLayout(new BorderLayout());
@@ -240,6 +260,9 @@ public class Graphics {
 		
 	}
 
+	/**
+	 * maga a jÃ¡tÃ©k , new game utÃ¡n
+	 */
 	public void loadMap() {
 		JFrame mainFrame = new JFrame();
 		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);

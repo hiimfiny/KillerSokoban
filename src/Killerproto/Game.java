@@ -51,6 +51,10 @@ public class Game
 		return players.get(index).getPoints();
 	}
 
+
+	/**
+	 * játékos váltás
+	 */
 	public void switchWorkers(){
 		index=players.get(player).workerIndex(actualWorker);
 		if(index==1){
@@ -61,6 +65,10 @@ public class Game
 		}
 		
 	}
+
+	/**
+	 * munkások játékoshoz beállítása
+	 */
 	public void initWorkers() {
 		workers=warehouse.getWorkers();
 		for(Worker w: workers) {

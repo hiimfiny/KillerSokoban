@@ -40,7 +40,7 @@ public class Field extends JButton{
 
 	public void addCrate(){crateCount++;}
 
-	public int getCrateCount(){return crateCount;}
+	public static int getCrateCount(){return crateCount;}
 
 	/**
 	 * A mezot reprezentalo karakter lekerdezese

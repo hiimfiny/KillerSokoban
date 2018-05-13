@@ -61,6 +61,8 @@ public class Graphics {
 	
 	private class NewGameListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
+			JFrame jf= (JFrame) SwingUtilities.getRoot((Component)e.getSource());
+			jf.setVisible(false);
 			game.NewGame();
 		}
 	}
@@ -84,7 +86,7 @@ public class Graphics {
 			Game.GetActualWorker().select();
 			
 			//game.switchWorkers();
-			if(map.map[0][0].getCrateCount()==0){close(e); }
+			if(Field.getCrateCount()==0){close(e); }
 			}
 		}
 	}
@@ -100,8 +102,7 @@ public class Graphics {
             game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
-				if(map.map[0][0].getCrateCount()==0){close(e); }
-
+				if(Field.getCrateCount()==0){close(e); }
         	}          
 
         }
@@ -118,7 +119,7 @@ public class Graphics {
             game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
-				if(map.map[0][0].getCrateCount()==0){close(e); }
+				if(Field.getCrateCount()==0){close(e); }
             }          
 
         }
@@ -135,7 +136,7 @@ public class Graphics {
             game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
-				if(map.map[0][0].getCrateCount()==0){close(e); }
+				if(Field.getCrateCount()==0){close(e); }
         	} 
 
 
@@ -206,6 +207,7 @@ public class Graphics {
 	
 		
 		end.pack();
+		//end.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
 	}
 
@@ -215,6 +217,8 @@ public class Graphics {
 		mainFrame.setPreferredSize(new Dimension(map.getS() * 60, map.getS() * 60));
 		JPanel pane = new JPanel();
 		JPanel move = new JPanel();
+		splitPane.setDividerLocation(map.getS()*40);
+		//move.setPreferredSize(new Dimension(map.getS()*60,100));
 		move.setLayout(new GridLayout(2,3));
 		pane.setLayout(new GridLayout(map.getS(), map.getS()));
 		for (int i = 0; i < map.getS(); i++) {
@@ -223,7 +227,9 @@ public class Graphics {
 				//map.map[i][j].setEnabled(false);
 			}
 		}
+
 		JButton up = new JButton("up");
+
 		up.addActionListener(new MoveUpActionListener());
 
 		JButton down = new JButton("down");
@@ -239,6 +245,7 @@ public class Graphics {
         wswitch.addActionListener(new SwitchActionListener());
 
         JButton check = new JButton("check");
+
 		check.addActionListener(new CheckActionListener());
 		splitPane.add(pane);
 		move.add(check);

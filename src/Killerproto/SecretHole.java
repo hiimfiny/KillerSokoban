@@ -96,6 +96,7 @@ public class SecretHole extends Hole {
             	if(w.getChar()=='1') this.setBackground(Color.RED);
             	else this.setBackground(Color.WHITE);
             	this.setText("W");
+            	w.SetCurrent(this);
                 currentThing=w;
                 character=w.getChar();
 

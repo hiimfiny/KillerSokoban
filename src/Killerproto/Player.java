@@ -18,6 +18,15 @@ public class Player
     	Name=name;
     	points=0;
     }
+    
+    public int size() {
+    	return workers.size();
+    }
+    
+    public void kill() {
+    	workers.remove(Game.GetActualWorker());
+    }
+    
     public Player(){
         points=0;
     }

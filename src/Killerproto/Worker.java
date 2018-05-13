@@ -18,8 +18,8 @@ public class Worker implements Thing
 	public Worker(char c) {
 		character=c;
 		power=4;
-
 	}
+	
 	public void unselect() {
 		current.setText("W");
 	}
@@ -27,6 +27,8 @@ public class Worker implements Thing
 	public void select() {
 		if(current!=null) current.setText("Ws");
 	}
+	
+	
 	public Field getCurrentField(){
 		return this.current;
 	}

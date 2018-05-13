@@ -1,7 +1,5 @@
 package Killerproto;
 
-
-import java.io.*;
 import java.util.*;
 
 /**
@@ -14,7 +12,7 @@ public class Game
 	private WareHouse warehouse;				//A jatek raktara
 	private List<Player> players = new ArrayList<Player>();				//A jatekot jatszo jatekosok
 	private static  Worker actualWorker;		//A jelenleg aktiv munkas
-	static boolean endMapRead=false;			//A beolvasas veget jelzo valtozo
+	static boolean killed=false;			
 	private List<Worker> workers = new ArrayList<>();
 	private int index;
 	private int player;
@@ -90,6 +88,7 @@ public class Game
     public void Play(){ }
     public void EndGame(){ }
     public void NextPlayer(){ 
+    	
     	if(player==1) player=0;
     	else player=1;
     	
@@ -105,8 +104,7 @@ public class Game
 	 * A tesztelest vegzi
 	 * @param args -
 	 */
-    public static void main(String args[]){
-		WareHouse wh = new WareHouse();		
+    public static void main(String args[]){	
 		Game g=new Game();
 		g.menu();
 		end=false;

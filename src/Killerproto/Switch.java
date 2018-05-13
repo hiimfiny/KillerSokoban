@@ -29,6 +29,7 @@ public class Switch extends Field{
     		if(w.getChar()=='1') this.setBackground(Color.RED);
     		else this.setBackground(Color.WHITE);
     		this.setText("W");
+    		w.SetCurrent(this);
     		currentThing=w;
     		character='1';
 

@@ -62,15 +62,17 @@ public class Crate implements Thing
 	 * @param d Az irany amerre a ladat eltoljak
 	 */
     public void PushedBy(Crate c, Field f,Direction d) {
-    	if(Game.GetActualWorker().GetPower()>weight) {
-    		Game.GetActualWorker().setPower(-1*weight);
+    	int change=0;
+    	if(Game.GetActualWorker().GetPower()>=weight) {
+    		change=weight;
+    		Game.GetActualWorker().setPower(-1*change);
     		f.Accept(this, d);
     	}
     	else {
     		System.out.println("Push failed");
     		return;
     	}
-    	Game.GetActualWorker().setPower(weight);    	
+    	Game.GetActualWorker().setPower(change);  	
     }
 
 	/**
@@ -82,15 +84,17 @@ public class Crate implements Thing
 	 * @param d Az irany amerrol tolni akarja a ladat
 	 */
     public void PushedBy(Worker w, Field f, Direction d) {
-    	if(Game.GetActualWorker().GetPower()>weight) {
-    		Game.GetActualWorker().setPower(-1*weight);
+    	int change=0;
+    	if(Game.GetActualWorker().GetPower()>=weight) {
+    		change=weight;
+    		Game.GetActualWorker().setPower(-1*change);
     		f.Accept(this, d);
     	}
     	else {
     		System.out.println("Push failed");
     		return;
     	}
-    	Game.GetActualWorker().setPower(weight);
+    	Game.GetActualWorker().setPower(change);
     }
 
 	/**
@@ -101,6 +105,10 @@ public class Crate implements Thing
     	weight=3;
     	System.out.println("Crates weight increased");
     }
+	
+	public void ChangeWeight(Field f) {
+		weight=2;
+	}
 
 	/**
 	 * A lada sulyanak csokkentese, ha csuszos mezore erkezik

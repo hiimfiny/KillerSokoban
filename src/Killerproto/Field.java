@@ -132,6 +132,7 @@ public class Field extends JButton{
 	 * @param d Az irany amerre lep
 	 */
 	public void Accept(Crate c, Direction d) {
+		c.ChangeWeight(this);
     	if(currentThing!=null) {
     		currentThing.PushedBy(c, neighbors.get(d), d);
     	}
@@ -149,6 +150,7 @@ public class Field extends JButton{
         	}
     	}
     }
+	
 
 	/**
 	 * Leszedi a mezorol az adott thing-et

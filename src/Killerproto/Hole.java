@@ -44,7 +44,8 @@ public class Hole extends Field {
     	Field f= neighbors.get(negDirection(d));
         if(f!=null) {
             f.Remove(w);
-        }      
+        }
+        f.setText("");
         w.SetCurrent(this);
         this.setBackground(Color.BLACK);
         this.setText("");

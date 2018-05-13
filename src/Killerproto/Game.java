@@ -81,7 +81,9 @@ public class Game
 	}
 
 	public void kill(){
+
 		players.get(player).kill();
+
 
 	}
 

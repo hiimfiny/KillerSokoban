@@ -78,9 +78,9 @@ public class Graphics {
 			
 			map.searchWorker();
 			game.kill();
-			//if(Game.killed){close(e);}
+			if(Game.killed){close(e);}
 			Game.GetActualWorker().unselect();
-			//game.NextPlayer();
+			game.NextPlayer();
 			Game.GetActualWorker().select();
 			
 			//game.switchWorkers();
@@ -95,9 +95,9 @@ public class Graphics {
             Game.GetActualWorker().Enters(map.map[map.x+1][map.y],Direction.Down);
             map.searchWorker();
 				game.kill();
-				//if(Game.killed){close(e);}
+				if(Game.killed){close(e);}
             Game.GetActualWorker().unselect();
-            //game.NextPlayer();
+            game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
 				if(map.map[0][0].getCrateCount()==0){close(e); }
@@ -113,9 +113,9 @@ public class Graphics {
             Game.GetActualWorker().Enters(map.map[map.x][map.y-1],Direction.Left);
             map.searchWorker();
 				game.kill();
-				//if(Game.killed){close(e);}
+				if(Game.killed){close(e);}
             Game.GetActualWorker().unselect();
-            //game.NextPlayer();
+            game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
 				if(map.map[0][0].getCrateCount()==0){close(e); }
@@ -130,9 +130,9 @@ public class Graphics {
             Game.GetActualWorker().Enters(map.map[map.x][map.y+1],Direction.Right);
             map.searchWorker();
 				game.kill();
-				//if(Game.killed){close(e);}
+				if(Game.killed){close(e);}
             Game.GetActualWorker().unselect();
-            //game.NextPlayer();
+            game.NextPlayer();
             Game.GetActualWorker().select();
             //game.switchWorkers();
 				if(map.map[0][0].getCrateCount()==0){close(e); }

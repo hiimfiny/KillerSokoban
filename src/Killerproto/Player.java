@@ -35,7 +35,8 @@ public class Player
     public void kill() {
         for(Worker w:workers){
             if(w.getCurrentField().getThing()==null){
-                //if(workers.size()==1){Game.killed=true;}
+                if(workers.size()==1){Game.killed=true;}
+                points+=w.getPoints();
                 workers.remove(w);
                 System.out.println("ded");
                 return;

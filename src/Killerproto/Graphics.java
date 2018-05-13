@@ -134,6 +134,11 @@ public class Graphics {
            map.searchWorker();
         }
     }
+    private class CheckActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			game.NextPlayer();
+		}
+	}
 	
 	public void endFrame() {
 		JFrame end=new JFrame();
@@ -219,7 +224,7 @@ public class Graphics {
         wswitch.addActionListener(new SwitchActionListener());
 
         JButton check = new JButton("check");
-
+		check.addActionListener(new CheckActionListener());
 		splitPane.add(pane);
 		move.add(check);
 		move.add(up);

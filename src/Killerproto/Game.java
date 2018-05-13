@@ -92,8 +92,8 @@ public class Game
     public void NextPlayer(){ 
     	if(player==1) player=0;
     	else player=1;
-    	
-    	actualWorker=players.get(player).SelectWorker(0);
+    	SetActualWorker(players.get(player).SelectWorker(0));
+    	//actualWorker=players.get(player).SelectWorker(0);
     	warehouse.searchWorker();
     }
 

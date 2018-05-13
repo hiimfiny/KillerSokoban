@@ -69,7 +69,7 @@ public class Graphics {
 	
 	private class CloseListener implements ActionListener{	  
 	    public void actionPerformed(ActionEvent e) {	        
-	       close(e);
+	       System.exit(0);
 	    }
 	}
 
@@ -84,8 +84,6 @@ public class Graphics {
 			Game.GetActualWorker().unselect();
 			game.NextPlayer();
 			Game.GetActualWorker().select();
-			
-			//game.switchWorkers();
 			if(Field.getCrateCount()==0){close(e); }
 			}
 		}
@@ -101,7 +99,6 @@ public class Graphics {
             Game.GetActualWorker().unselect();
             game.NextPlayer();
             Game.GetActualWorker().select();
-            //game.switchWorkers();
 				if(Field.getCrateCount()==0){close(e); }
         	}          
 
@@ -207,7 +204,7 @@ public class Graphics {
 	
 		
 		end.pack();
-		//end.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		end.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 
@@ -259,6 +256,7 @@ public class Graphics {
 		mainFrame.add(splitPane);
 		mainFrame.setVisible(true);
 		mainFrame.pack();
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
 	public void showMap() {

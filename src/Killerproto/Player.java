@@ -18,7 +18,16 @@ public class Player
     	Name=name;
     	points=0;
     }
-    
+
+    public void countPoints(){
+        for (Worker w: workers) {
+            points+=w.getPoints();
+        }
+    }
+    public int getPoints(){
+        return points;
+    }
+
     public int size() {
     	return workers.size();
     }
@@ -26,10 +35,7 @@ public class Player
     public void kill() {
     	workers.remove(Game.GetActualWorker());
     }
-    
-    public Player(){
-        points=0;
-    }
+
     
     public void addWorker(Worker w) {
     	workers.add(w);

@@ -72,4 +72,5 @@ public class Pillar implements Thing
 	public void Enters(Field f,Direction d) {}
 	public void setTargetField(Field f){}
 	public void PushedBy(Thing t, Field f, Direction d) {}
+	public void addPoints(int p){}
 }

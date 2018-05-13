@@ -8,7 +8,6 @@ import java.awt.Color;
 public class Crate implements Thing
 {
 	private Field current;			//A field amin a lada van
-    //private Field target;			//A field ahova a ladának el kell érnie
     private int weight;				//A lada sulya
     private char character;			//A ladat reprezentali karakter
     
@@ -42,19 +41,6 @@ public class Crate implements Thing
 	f.setBackground(Color.YELLOW);
 	f.setText("C");
 }
-
-	/**
-	 * A lada cel mezojet allitja be
-	 * @param f a mezo ahova a ladat el kell juttatni
-	 */
-	//public void setTargetField(Field f) {target=f;}
-
-	/**
-	 * Lekerdezi a lada cel mezojet
-	 * @return a lada cel mezoje
-	 */
-	//public Field getTargetField() {return target;}
-
 	/**
 	 * Egy lada eltol egy masikat
 	 * @param c A lada ami a jelenlegi ladat eltolja
@@ -131,6 +117,7 @@ public class Crate implements Thing
 
 	@Override
 	public void PushedBy(Thing t, Field f,Direction d) {}
+	public void addPoints(int p){}
 
 
 }

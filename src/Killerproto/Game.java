@@ -14,6 +14,7 @@ public class Game
 	private static  Worker actualWorker;		//A jelenleg aktiv munkas
 	static boolean killed=false;			
 	private List<Worker> workers = new ArrayList<>();
+	private List<Crate> crates = new ArrayList<>();
 	private int index;
 	private int player;
 
@@ -39,7 +40,15 @@ public class Game
 		actualWorker=w;		
 		actualWorker.select();
 	}
-	
+
+	public void countPoints(){
+		for (Player p: players) {
+			p.countPoints();
+		}
+	}
+	public int getPoints(int index){
+		return players.get(index).getPoints();
+	}
 
 	public void switchWorkers(){
 		//index = warehouse.getWorkers().indexOf(actualWorker);
@@ -68,6 +77,9 @@ public class Game
 			else players.get(1).addWorker(w);
 		}
 	}
+
+
+
 
     public void NewGame(){
         Player sanyi = new Player("Sanyi");

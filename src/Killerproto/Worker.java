@@ -10,6 +10,7 @@ public class Worker implements Thing
 	private Field current;			//A mezo amin a munkas epp all
     private int power;				//A munkas ereje
 	private char character;		//A munkast reprezentalo karakter
+	private int points;
 
 	/**
 	 * A munkas konstruktora
@@ -18,8 +19,16 @@ public class Worker implements Thing
 	public Worker(char c) {
 		character=c;
 		power=4;
+		points=0;
 	}
-	
+
+	public void addPoints(int p){
+		points+=p;
+	}
+	public int getPoints(){
+		return points;
+	}
+
 	public void unselect() {
 		current.setText("W");
 	}

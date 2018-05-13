@@ -12,7 +12,7 @@ public class Graphics {
 	
 	public Graphics(Game g) {
 		game=g;
-		map=g.getwh();		
+		map=g.getwh();
 	}	
 	
 	public void showMenu() {
@@ -160,15 +160,17 @@ public class Graphics {
 		
 		JPanel scores=new JPanel();
 		scores.setLayout(new GridLayout(2,2));
-		
+
+
+
 		JLabel p1=new JLabel();
 		p1.setText("player1 score");
 		scores.add(p1);
 		
-		
+
 		JPanel p1p=new JPanel();
 		JTextField p1tb=new JTextField();
-		p1tb.setText("0");
+		p1tb.setText(Integer.toString(game.getPoints(0)));
 		p1tb.setPreferredSize(new Dimension(100,30));
 		p1tb.setEnabled(false);
 		p1p.setLayout(new BorderLayout());		
@@ -181,7 +183,7 @@ public class Graphics {
 		scores.add(p2);
 		
 		JTextField p2tb=new JTextField();
-		p2tb.setText("0");
+		p2tb.setText(Integer.toString(game.getPoints(1)));
 		p2tb.setPreferredSize(new Dimension(20,100));
 		p2tb.setEnabled(false);
 		scores.add(p2tb,BorderLayout.EAST);

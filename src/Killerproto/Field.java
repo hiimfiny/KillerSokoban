@@ -154,6 +154,7 @@ public class Field extends JButton{
     		if(this.target) {
     			System.out.println("A lada a helyen van!");
     			Remove(c);
+    			getNeighbour(d).getThing().addPoints(20);
         	}
     	}
     }

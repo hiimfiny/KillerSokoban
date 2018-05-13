@@ -58,16 +58,17 @@ public class Worker implements Thing
 	 * @param f A mezo amit beallit
 	 */
 	public void SetCurrent(Field f) {
-		if(current!=null) {
+		if (current != null) {
 			current.setBackground(Color.CYAN);
 			current.setText("");
 		}
-		current=f;
-		if(character=='1') f.setBackground(Color.RED);
-		else f.setBackground(Color.WHITE);
-		f.setText("W");
-		if(this==Game.GetActualWorker()) select();
-	}
+			current = f;
+			if (character == '1') f.setBackground(Color.RED);
+			else f.setBackground(Color.WHITE);
+			f.setText("W");
+			if (this == Game.GetActualWorker()) select();
+		}
+
 
 	/**
 	 * A munkas erejet keredezi le

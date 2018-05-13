@@ -116,14 +116,14 @@ public class SecretHole extends Hole {
      * Lekerul az adott thing a titkos lyukrol
      * @param t A thing amit leszed a mezorol
      */
-    /*
+
     public void Remove(Thing t) {
     	character=',';
     	currentThing=null;
     	this.setBackground(Color.cyan);
     	this.setText("");
     }
-    */
+
 
     /**
      * Kinyilik a titkos lyuk

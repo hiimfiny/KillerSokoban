@@ -36,9 +36,11 @@ public class Game
 	 * @param w A munkas amit be akarunk allitani
 	 */
 	public static void SetActualWorker(Worker w) {
-		if(actualWorker!=null) actualWorker.unselect();
-		actualWorker=w;		
-		actualWorker.select();
+		if (w != null) {
+			if (actualWorker != null) actualWorker.unselect();
+			actualWorker = w;
+			actualWorker.select();
+		}
 	}
 
 	public void countPoints(){

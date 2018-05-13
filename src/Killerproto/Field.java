@@ -176,6 +176,7 @@ public class Field extends JButton{
     	else this.setBackground(Color.CYAN);
 		//System.out.println("faszomfield");
 
+
     	this.setText("");
         character='.';
         currentThing=null;

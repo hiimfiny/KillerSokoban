@@ -33,10 +33,17 @@ public class Player
     }
     
     public void kill() {
-    	workers.remove(Game.GetActualWorker());
+        for(Worker w:workers){
+            if(w.getCurrentField().getThing()==null){
+                //if(workers.size()==1){Game.killed=true;}
+                workers.remove(w);
+                System.out.println("ded");
+                return;
+            }
+        }
     }
 
-    
+
     public void addWorker(Worker w) {
     	workers.add(w);
     }

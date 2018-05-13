@@ -161,7 +161,7 @@ public class Field extends JButton{
     			Remove(c);
     			crateCount--;
     			System.out.println(crateCount);
-				getNeighbour(negDirection(d)).getNeighbour(negDirection(d)).getThing().addPoints(20);
+				Game.GetActualWorker().addPoints(20);
         	}
     	}
     }
@@ -174,7 +174,6 @@ public class Field extends JButton{
     public void Remove(Thing t) {
     	if(target){this.setBackground(Color.MAGENTA);}
     	else this.setBackground(Color.CYAN);
-		//System.out.println("faszomfield");
 
 
     	this.setText("");

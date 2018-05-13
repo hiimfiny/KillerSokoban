@@ -58,7 +58,7 @@ public class Game
 		if(index==1){
 			SetActualWorker(players.get(player).SelectWorker(0));
 		}
-		else {
+		else if(players.get(player).size()>1) {
             SetActualWorker(players.get(player).SelectWorker(1));
 		}
 		/*if(index==warehouse.getWorkers().size()-1){
@@ -80,7 +80,10 @@ public class Game
 		}
 	}
 
+	public void kill(){
+		players.get(player).kill();
 
+	}
 
 
     public void NewGame(){

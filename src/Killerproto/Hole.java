@@ -52,7 +52,6 @@ public class Hole extends Field {
     }
     public void Remove(Thing t){
         if(t.getChar()=='c'){crateCount--; System.out.println(crateCount);}
-        //System.out.println("faszomhole");
         this.setBackground(Color.BLACK);
         this.setText("");
         character='.';

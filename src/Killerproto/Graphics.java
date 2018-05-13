@@ -46,12 +46,47 @@ public class Graphics {
 		p.add(Box.createRigidArea(new Dimension(0, 30)));
 		p.add(help,BorderLayout.SOUTH);
 		help.setAlignmentX(Component.CENTER_ALIGNMENT);		
-		
+		help.addActionListener(new HelpListener());
+
 		p.add(Box.createHorizontalGlue());		
 		menu.add(p);
 		menu.pack();
 	}
 
+	private class HelpListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			JFrame help=new JFrame();
+			help.setLayout(new BorderLayout());
+			help.setVisible(true);
+			help.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			help.setPreferredSize(new Dimension(300,300));
+			JPanel helpPanel = new JPanel();
+			help.add(helpPanel);
+			
+			JLabel helpLabel1=new JLabel();
+			JLabel helpLabel2=new JLabel();
+			JLabel helpLabel3=new JLabel();
+			helpLabel2.setText("A switch gombbal válthatunk a munkasaink kozott " );
+
+			helpLabel3.setText("a check gombbal atadhatjuk a korunket az ellenfelnek");
+
+			helpLabel1.setText("Jatek elinditasa utan egerrel a nyilakra kattintva tudsz mozogni"
+
+			);
+
+			helpLabel1.setFont(new Font("Arial",Font.PLAIN,20));
+			helpLabel2.setFont(new Font("Arial",Font.PLAIN,20));
+			helpLabel2.setFont(new Font("Arial",Font.PLAIN,20));
+			helpLabel1.setAlignmentX(Component.CENTER_ALIGNMENT);
+			helpLabel2.setAlignmentX(Component.CENTER_ALIGNMENT);
+			helpLabel3.setAlignmentX(Component.CENTER_ALIGNMENT);
+			helpPanel.add(helpLabel1,BorderLayout.NORTH );
+			helpPanel.add(helpLabel2,BorderLayout.CENTER );
+			helpPanel.add(helpLabel3,BorderLayout.SOUTH );
+
+
+		}
+	}
 
 	private void close(ActionEvent e){
 		JFrame jf= (JFrame) SwingUtilities.getRoot((Component)e.getSource());

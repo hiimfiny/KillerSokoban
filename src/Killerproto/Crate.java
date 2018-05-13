@@ -55,7 +55,6 @@ public class Crate implements Thing
     		f.Accept(this, d);
     	}
     	else {
-    		System.out.println("Push failed");
     		return;
     	}
     	Game.GetActualWorker().setPower(change);  	
@@ -77,7 +76,6 @@ public class Crate implements Thing
     		f.Accept(this, d);
     	}
     	else {
-    		System.out.println("Push failed");
     		return;
     	}
     	Game.GetActualWorker().setPower(change);
@@ -89,7 +87,6 @@ public class Crate implements Thing
 	 */
 	public void ChangeWeight(StickyField sf) {
     	weight=3;
-    	System.out.println("Crates weight increased");
     }
 	
 	public void ChangeWeight(Field f) {
@@ -101,8 +98,7 @@ public class Crate implements Thing
 	 * @param sf A csuszos mezo amire erkezik
 	 */
 	public void ChangeWeight(SlipperyField sf) {
-    	weight=1;
-    	System.out.println("Crates weight decreased");
+    	weight=0;
     }
 
 	/**

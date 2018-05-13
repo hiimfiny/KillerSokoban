@@ -63,8 +63,11 @@ public class Pillar implements Thing
     		return;
     	}
     	else {
-    		if(current.getNeighbour(current.negDirection(d))!=null)
-    			current.getNeighbour(current.negDirection(d)).Remove(w);    		
+    		if(current.getNeighbour(current.negDirection(d))!=null) {
+    			current.getNeighbour(current.negDirection(d)).Remove(w);
+    			w=null;
+    			}
+    			
     	}
     }
 

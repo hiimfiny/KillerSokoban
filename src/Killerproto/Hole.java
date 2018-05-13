@@ -27,7 +27,6 @@ public class Hole extends Field {
     public void Accept(Crate c, Direction d) {
     	c = null;
         crateCount--;
-        System.out.println(crateCount);
             Field f= neighbors.get(negDirection(d));
             if(f!=null) {
                 f.Remove(c);
@@ -52,7 +51,7 @@ public class Hole extends Field {
         w =null;
     }
     public void Remove(Thing t){
-        if(t.getChar()=='c'){crateCount--; System.out.println(crateCount);}
+        if(t.getChar()=='c'){crateCount--; }
         this.setBackground(Color.BLACK);
         this.setText("");
         character='.';

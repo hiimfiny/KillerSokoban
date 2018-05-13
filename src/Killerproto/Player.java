@@ -38,7 +38,6 @@ public class Player
                 if(workers.size()==1){Game.killed=true;}
                 points+=w.getPoints();
                 workers.remove(w);
-                System.out.println("ded");
                 return;
             }
         }

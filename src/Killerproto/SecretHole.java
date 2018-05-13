@@ -42,7 +42,6 @@ public class SecretHole extends Hole {
         if(state)
         {
             crateCount--;
-            System.out.println(crateCount);
             Field f= neighbors.get(negDirection(d));
             if(f!=null) {
                 f.Remove(c);

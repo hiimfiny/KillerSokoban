@@ -157,7 +157,6 @@ public class Field extends JButton{
     			f.Remove(c);
     		}
     		if(this.target) {
-    			System.out.println("A lada a helyen van!");
     			Remove(c);
     			crateCount--;
     			System.out.println(crateCount);

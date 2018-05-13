@@ -137,7 +137,6 @@ public class Graphics {
             Game.GetActualWorker().unselect();
             game.NextPlayer();
             Game.GetActualWorker().select();
-            //game.switchWorkers();
 				if(Field.getCrateCount()==0){close(e); }
             }          
 
@@ -154,7 +153,6 @@ public class Graphics {
             Game.GetActualWorker().unselect();
             game.NextPlayer();
             Game.GetActualWorker().select();
-            //game.switchWorkers();
 				if(Field.getCrateCount()==0){close(e); }
         	} 
 
@@ -237,13 +235,11 @@ public class Graphics {
 		JPanel pane = new JPanel();
 		JPanel move = new JPanel();
 		splitPane.setDividerLocation(map.getS()*40);
-		//move.setPreferredSize(new Dimension(map.getS()*60,100));
 		move.setLayout(new GridLayout(2,3));
 		pane.setLayout(new GridLayout(map.getS(), map.getS()));
 		for (int i = 0; i < map.getS(); i++) {
 			for (int j = 0; j < map.getS(); j++) {
 				pane.add(map.map[i][j]);
-				//map.map[i][j].setEnabled(false);
 			}
 		}
 
@@ -281,15 +277,7 @@ public class Graphics {
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
-	public void showMap() {
-
-		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Up).setEnabled(true);
-		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Down).setEnabled(true);
-		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Left).setEnabled(true);
-		//game.GetActualWorker().getCurrentField().getNeighbour(Direction.Right).setEnabled(true);
-
-		
-	}
+	
 	
 	WareHouse readMap() {
 		return null;

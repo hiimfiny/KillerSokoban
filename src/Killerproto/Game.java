@@ -53,7 +53,6 @@ public class Game
 	}
 
 	public void switchWorkers(){
-		//index = warehouse.getWorkers().indexOf(actualWorker);
 		index=players.get(player).workerIndex(actualWorker);
 		if(index==1){
 			SetActualWorker(players.get(player).SelectWorker(0));
@@ -61,14 +60,7 @@ public class Game
 		else if(players.get(player).size()>1) {
             SetActualWorker(players.get(player).SelectWorker(1));
 		}
-		/*if(index==warehouse.getWorkers().size()-1){
-			SetActualWorker(warehouse.getWorkers().get(index-1));
-		    index--;
-		}
-		else {
-            SetActualWorker(warehouse.getWorkers().get(index+1));
-            index++;
-        }*/
+		
 	}
 	public void initWorkers() {
 		workers=warehouse.getWorkers();
@@ -81,10 +73,7 @@ public class Game
 	}
 
 	public void kill(){
-
 		players.get(player).kill();
-
-
 	}
 
 
@@ -111,7 +100,6 @@ public class Game
     	if(player==1) player=0;
     	else player=1;
     	SetActualWorker(players.get(player).SelectWorker(0));
-    	//actualWorker=players.get(player).SelectWorker(0);
     	warehouse.searchWorker();
     }
 

@@ -20,6 +20,13 @@ public class Worker implements Thing
 		power=4;
 
 	}
+	public void unselect() {
+		current.setText("W");
+	}
+	
+	public void select() {
+		if(current!=null) current.setText("Ws");
+	}
 	public Field getCurrentField(){
 		return this.current;
 	}
@@ -45,8 +52,10 @@ public class Worker implements Thing
 			current.setText("");
 		}
 		current=f;
-		f.setBackground(Color.RED);
+		if(character=='1') f.setBackground(Color.RED);
+		else f.setBackground(Color.WHITE);
 		f.setText("W");
+		if(this==Game.GetActualWorker()) select();
 	}
 
 	/**

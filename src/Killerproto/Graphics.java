@@ -74,7 +74,12 @@ public class Graphics {
 		public void actionPerformed(ActionEvent e){
 			if(map.x!=-1) {
 			Game.GetActualWorker().Enters(map.map[map.x-1][map.y],Direction.Up);
+			
 			map.searchWorker();
+			Game.GetActualWorker().unselect();
+			game.NextPlayer();
+			Game.GetActualWorker().select();
+			
 			//game.switchWorkers();
 			}
 		}
@@ -85,6 +90,9 @@ public class Graphics {
         	if(map.x!=-1) {
             Game.GetActualWorker().Enters(map.map[map.x+1][map.y],Direction.Down);
             map.searchWorker();
+            Game.GetActualWorker().unselect();
+            game.NextPlayer();
+            Game.GetActualWorker().select();
             //game.switchWorkers();
         	}          
 
@@ -96,6 +104,9 @@ public class Graphics {
         	if(map.x!=-1) {
             Game.GetActualWorker().Enters(map.map[map.x][map.y-1],Direction.Left);
             map.searchWorker();
+            Game.GetActualWorker().unselect();
+            game.NextPlayer();
+            Game.GetActualWorker().select();
             //game.switchWorkers();
             }          
 
@@ -107,6 +118,9 @@ public class Graphics {
         	if(map.x!=-1) {
             Game.GetActualWorker().Enters(map.map[map.x][map.y+1],Direction.Right);
             map.searchWorker();
+            Game.GetActualWorker().unselect();
+            game.NextPlayer();
+            Game.GetActualWorker().select();
             //game.switchWorkers();
         	} 
         	
@@ -178,7 +192,7 @@ public class Graphics {
 	public void loadMap() {
 		JFrame mainFrame = new JFrame();
 		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-		mainFrame.setPreferredSize(new Dimension(map.getS() * 50, map.getS() * 50));
+		mainFrame.setPreferredSize(new Dimension(map.getS() * 60, map.getS() * 60));
 		JPanel pane = new JPanel();
 		JPanel move = new JPanel();
 		move.setLayout(new GridLayout(2,3));

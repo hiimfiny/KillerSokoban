@@ -17,6 +17,7 @@ public class Game
 	static boolean endMapRead=false;			//A beolvasas veget jelzo valtozo
 	private List<Worker> workers = new ArrayList<>();
 	private int index;
+	private int player;
 
 	/**
 	 * A jelenleg aktiv munkast kerdezi le
@@ -36,21 +37,38 @@ public class Game
 	 * @param w A munkas amit be akarunk allitani
 	 */
 	public static void SetActualWorker(Worker w) {
-		actualWorker=w;
-		
+		if(actualWorker!=null) actualWorker.unselect();
+		actualWorker=w;		
+		actualWorker.select();
 	}
+	
 
 	public void switchWorkers(){
-		index = warehouse.getWorkers().indexOf(actualWorker);
-		
-		if(index==warehouse.getWorkers().size()-1){
+		//index = warehouse.getWorkers().indexOf(actualWorker);
+		index=players.get(player).workerIndex(actualWorker);
+		if(index==1){
+			SetActualWorker(players.get(player).SelectWorker(0));
+		}
+		else {
+            SetActualWorker(players.get(player).SelectWorker(1));
+		}
+		/*if(index==warehouse.getWorkers().size()-1){
 			SetActualWorker(warehouse.getWorkers().get(index-1));
 		    index--;
 		}
 		else {
             SetActualWorker(warehouse.getWorkers().get(index+1));
             index++;
-        }
+        }*/
+	}
+	public void initWorkers() {
+		workers=warehouse.getWorkers();
+		for(Worker w: workers) {
+			if(w.getChar()=='1') {
+				players.get(0).addWorker(w);
+			}
+			else players.get(1).addWorker(w);
+		}
 	}
 
     public void NewGame(){
@@ -58,9 +76,11 @@ public class Game
         players.add(sanyi);
         Player pali = new Player("Pali");
         players.add(pali);
+        player=0;
 
     	warehouse=new WareHouse();
     	warehouse.readMap("Map.txt");
+    	initWorkers();
 
     	warehouse.neighbors();
     	graphic=new Graphics(this);
@@ -69,7 +89,13 @@ public class Game
     }
     public void Play(){ }
     public void EndGame(){ }
-    public void NextPlayer(){ }
+    public void NextPlayer(){ 
+    	if(player==1) player=0;
+    	else player=1;
+    	
+    	actualWorker=players.get(player).SelectWorker(0);
+    	warehouse.searchWorker();
+    }
 
 	public void menu() {
 		graphic=new Graphics(this);
@@ -84,76 +110,13 @@ public class Game
 		Game g=new Game();
 		g.menu();
 		end=false;
-		loadMap(wh);
-		wh.neighbors();
-		
+				
 		}
 	/**
 	 * A tesztpalyak betolteset vegzi el
 	 * @param wh A raktar ami a beolvasast es a kirajzolast vegzi
 	 */
-	public static void loadMap(WareHouse wh) {
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		String command;
-		try {
-			switch(command = br.readLine()) {
-
-				case "loadGame(TestMap1)":
-					wh.readMap( "testMap1.txt");
-					break;
-				case "loadGame(TestMap2)":
-					wh.readMap( "testMap2.txt");
-					break;
-				case "loadGame(TestMap3)":
-					wh.readMap( "testMap3.txt");
-					break;
-				case "loadGame(TestMap4)":
-					wh.readMap( "testMap4.txt");
-					break;
-				case "loadGame(TestMap5)":
-					wh.readMap( "testMap5.txt");
-					break;
-				case "loadGame(TestMap6)":
-					wh.readMap( "testMap6.txt");
-					break;
-				case "loadGame(TestMap7)":
-					wh.readMap( "testMap7.txt");
-					break;
-				case "loadGame(TestMap8)":
-					wh.readMap( "testMap8.txt");
-					break;
-				case "loadGame(TestMap9)":
-					wh.readMap( "testMap9.txt");
-					break;
-				case "loadGame(TestMap10)":
-					wh.readMap( "testMap10.txt");
-					break;
-				case "loadGame(TestMap11)":
-					wh.readMap( "testMap11.txt");
-					break;
-				case "loadGame(TestMap12)":
-					wh.readMap( "testMap12.txt");
-					break;
-				case "loadGame(TestMap13)":
-					wh.readMap( "testMap13.txt");
-					//A pályán lévő ládának beállitjuk a helyét
-					wh.map[2][3].getThing().setTargetField(wh.map[2][4]);
-					break;
-				case "loadGame(TestMap14)":
-					wh.readMap( "testMap14.txt");
-					break;
-				case "Exit":
-					endMapRead=true;
-					break;
-				default:
-					end=true;
-					break;
-
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	
+	
 	}
 

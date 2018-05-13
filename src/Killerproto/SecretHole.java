@@ -93,7 +93,8 @@ public class SecretHole extends Hole {
             }
 
             if(getThing()==null) {
-            	this.setBackground(Color.RED);
+            	if(w.getChar()=='1') this.setBackground(Color.RED);
+            	else this.setBackground(Color.WHITE);
             	this.setText("W");
                 currentThing=w;
                 character=w.getChar();

@@ -69,6 +69,11 @@ public class WareHouse extends JFrame {
 							case "0":
 								map[i - size][j].setCurrentThing(new Pillar());
 								break;
+							case "2":
+								Worker w3=new Worker('2');
+								workers.add(w3);
+								map[i - size][j].setCurrentThing(w3);
+								break;
 							case "7":
 								map[i - size][j].setCurrentThing(new Crate(2));
 								break;
@@ -145,21 +150,7 @@ public class WareHouse extends JFrame {
 		}
 	}
 
-	/**
-	 * Kirajzolja a raktarat
-	 */
-	public void showMap() {
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				if(map[i][j].getThing()==null)
-					System.out.print(map[i][j].getChar());
-				else
-					System.out.print(map[i][j].getThing().getChar());
-			}
-			System.out.print("\n");
-		}
-		
-	}
+	
 
 	/**
 	 * Megkeresi az epp aktualis jatekost
@@ -178,39 +169,7 @@ public class WareHouse extends JFrame {
 		}
 		
 	}
-
-	/**
-	 * A parancsok beolvasasat vegzi
-	 */
-	public void readCommand(){
-		BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
-		try {
-			String command=br.readLine();
-			
-			switch(command) {
-			case "moveRight":
-				Game.GetActualWorker().Enters(map[x][y+1], Direction.Right);
-				searchWorker();
-				break;
-			case "moveLeft":
-				Game.GetActualWorker().Enters(map[x][y-1],Direction.Left);
-				searchWorker();
-				break;
-			case "moveUp":
-				Game.GetActualWorker().Enters(map[x-1][y],Direction.Up);
-				searchWorker();
-				break;
-			case "moveDown":
-				Game.GetActualWorker().Enters(map[x+1][y],Direction.Down);
-				searchWorker();
-				break;
-			case "exit":
-				Game.end=true;
-			}
-		}catch(Exception e) {
-			System.out.println("Exception: warehouse.readCommand()");
-		}
-	}
+	
 
 	/**
 	 * Beallitja minden mezo minden szomszedjat

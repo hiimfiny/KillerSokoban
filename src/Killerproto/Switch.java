@@ -26,7 +26,8 @@ public class Switch extends Field{
     		currentThing.PushedBy(w, neighbors.get(d), d);
     	}
     	if(currentThing==null) {
-    		this.setBackground(Color.RED);
+    		if(w.getChar()=='1') this.setBackground(Color.RED);
+    		else this.setBackground(Color.WHITE);
     		this.setText("W");
     		currentThing=w;
     		character='1';

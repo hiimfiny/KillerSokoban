@@ -2,8 +2,6 @@ package Killerproto;
 
 import java.io.BufferedReader;
 import javax.swing.*;
-import java.io.InputStreamReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,27 +16,47 @@ public class WareHouse extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	protected int size;						//A raktar merete
-	public Field[][] map;					//A raktar mezoi
-	private SecretHole secret;		//A tesztben szereplo titkos lyuk
-	private Switch sw;				//A tesztben szereplo kapcsolo
-	static int x,y;					//A kijelolt munkas koordinataja
+	/** A raktar merete*/
+	protected int size;		
+	/** A raktar mezoi*/
+	public Field[][] map;			
+	/** A palyan levo titkos lyuk*/
+	private SecretHole secret;		
+	/** A palyan levo switch*/
+	private Switch sw;				
+	/** Az aktualis munkas helye*/
+	static int x,y;					
+	/** A munkasok listaja*/
 	private List<Worker> workers = new ArrayList<>();
 
-
+/**
+ * Visszaadja a raktar meretet
+ * @return a raktar merete
+ */
 	public int getS() {
 		return size;
 		
 	}
+	/**
+	 * 
+	 * @return A munkasok listaja
+	 */
 
 	public List<Worker> getWorkers(){
 		return workers;
 	}
-	
+	/**
+	 * Torli az i-edik munkast
+	 * @param i a torlendo index
+	 */
 	public void removeAt(int i) {
 		workers.remove(i);
 	}
 
+	/**
+	 * Torli az adott munkast
+	 * @param w az adott munkas
+	 */
 	public void removeWorker(Worker w){
 		workers.remove(w);
 	}

@@ -7,9 +7,12 @@ import java.awt.Color;
  */
 public class Crate implements Thing
 {
-	private Field current;			//A field amin a lada van
-    private int weight;				//A lada sulya
-    private char character;			//A ladat reprezentali karakter
+	/**Az aktualis mezo*/
+	private Field current;		
+	/**A lada sulya*/
+    private int weight;		
+    /**A ladat leiro karakter*/
+    private char character;			
     
 	/**
 	 * A lada konstruktora
@@ -88,7 +91,10 @@ public class Crate implements Thing
 	public void ChangeWeight(StickyField sf) {
     	weight=3;
     }
-	
+	/**
+	 * A lada sulyanak valtozasa egy sima mezon
+	 * @param f A mezo, maire a lada erkezik
+	 */
 	public void ChangeWeight(Field f) {
 		weight=2;
 	}

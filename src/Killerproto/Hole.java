@@ -24,6 +24,11 @@ public class Hole extends Field {
     public void SetCurrent() {
         this.setBackground(Color.black);
     }
+    /**
+     * A lada lyukba eseset kezeli
+     * @param c A lada
+     * @param d A mozgas iranya
+     */
     public void Accept(Crate c, Direction d) {
     	c = null;
         crateCount--;
@@ -51,7 +56,10 @@ public class Hole extends Field {
         w =null;
     }
 
-
+    /**
+     * A mezorol egy dolog tavozasat kezeli
+     * @param t A tavozo dolog
+     */
     public void Remove(Thing t){
         if(t.getChar()=='c'){crateCount--; }
         this.setBackground(Color.BLACK);

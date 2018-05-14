@@ -7,7 +7,15 @@ import java.awt.Color;
  */
 public class Switch extends Field{
 
-	private SecretHole secretHole;          //A kapcsolohoz tartozo titkos lyuk
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * A kapcsolohoz tartozo titkos lyuk
+	 */
+	private SecretHole secretHole;          
 
     /**
      * A kapcsolohoz tartozo titkos lyukat allitja be
@@ -21,6 +29,11 @@ public class Switch extends Field{
        this.setBackground(java.awt.Color.GREEN);
     }
     
+    /**
+     * A munkas a mezore lep, es azon az adott iranyba mozog
+     * @paaram w munkas
+     * @param d a mozgas iranya
+     */
     public void Accept(Worker w,Direction d) {
 		if(currentThing!=null) {
     		currentThing.PushedBy(w, neighbors.get(d), d);

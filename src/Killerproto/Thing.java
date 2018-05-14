@@ -1,5 +1,10 @@
 package Killerproto;
 
+/**
+ * A jatek soran felmerulo dolgok interface,
+ * Ezen dolgok a ladak, oszlopok, munkasok
+ *  
+ */
 public interface Thing
 {
     void PushedBy(Thing t, Field f,Direction d) ;

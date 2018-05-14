@@ -7,6 +7,11 @@ import java.awt.*;
  */
 public class SlipperyField extends Field
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public SlipperyField(){
 		SetCurrent(this);
 	}

@@ -7,14 +7,22 @@ import java.util.*;
  */
 public class Game
 {
+	/** A grafikaert felos objektum*/
 	Graphics graphic;
-	public static boolean end=false;			//A jatek veget jelzo valtozo
-	private WareHouse warehouse;				//A jatek raktara
-	private List<Player> players = new ArrayList<Player>();				//A jatekot jatszo jatekosok
-	private static  Worker actualWorker;		//A jelenleg aktiv munkas
-	static boolean killed=false;			
+	public static boolean end=false;	
+	/** A raktararuhaz*/
+	private WareHouse warehouse;				
+	/** A jatekosok listaja*/
+	private List<Player> players = new ArrayList<Player>();	
+	/** Az aktualis munkas*/
+	private static  Worker actualWorker;	
+	/** Meghalt-e valamelyik jatekos?*/
+	static boolean killed=false;		
+	/** A munkasok listaja*/
 	private List<Worker> workers = new ArrayList<>();
+	/** A munkas indexe*/
 	private int index;
+	/**A jatekos indexe*/
 	private int player;
 
 	/**
@@ -41,6 +49,9 @@ public class Game
 		}
 	}
 
+	/**
+	 * Megszamolja a jatek soran szerzett pontokat
+	 */
 	public void countPoints(){
 		for (Player p: players) {
 			p.countPoints();
@@ -52,7 +63,7 @@ public class Game
 
 
 	/**
-	 * játékos váltás
+	 * Az aktualis jatekost valtja
 	 */
 	public void switchWorkers(){
 		index=players.get(player).workerIndex(actualWorker);
@@ -68,7 +79,7 @@ public class Game
 	}
 
 	/**
-	 * munkások játékoshoz beállítása
+	 * A munkasok beallitasa a jatekosokhoz
 	 */
 	public void initWorkers() {
 		workers=warehouse.getWorkers();
@@ -80,17 +91,23 @@ public class Game
 		}
 	}
 
+	/**
+	 * Megnezi, hogy meghalt-e valaki a korben
+	 * @return megtortent a halal vagy sem
+	 */
 	public boolean kill(){
 		boolean p1= players.get(0).kill();
 		boolean p2= players.get(1).kill();
 		return (p1||p2);
 	}
 
-
+	/**
+	 * Letrehoz egy uj jatekot
+	 */
     public void NewGame(){
-        Player sanyi = new Player("Sanyi");
+        Player sanyi = new Player();
         players.add(sanyi);
-        Player pali = new Player("Pali");
+        Player pali = new Player();
         players.add(pali);
         player=0;
 
@@ -105,8 +122,9 @@ public class Game
     	warehouse.searchWorker();
     	    	
     }
-    public void Play(){ }
-    public void EndGame(){ }
+   /**
+    * Atvalt a kovetkezo jatekosra
+    */
     public void NextPlayer(){ 
     	
     	if(player==1) player=0;
@@ -116,22 +134,22 @@ public class Game
     	SetActualWorker(players.get(player).SelectWorker(0));
     	warehouse.searchWorker();}
     }
-
+    /**
+     * Elinditja a jatek menujet
+     */
 	public void menu() {
 		graphic=new Graphics(this);
 		graphic.showMenu();
 	}
 	/**
-	 * A tesztelest vegzi
+	 *A jatek main fuggvenye, innen indul a jatek
 	 * @param args -
 	 */
     public static void main(String args[]){	
 		Game g=new Game();
 		g.menu();
-		end=false;
-				
+		end=false;				
 		}
-
 	
 	}
 

@@ -5,9 +5,18 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+/**
+ * Az osztaly amely a jatek grafikus megjeleniteseert felel
+ *
+ */
 public class Graphics {
-	
+	/**
+	 * A jatek terkepe
+	 */
 	private WareHouse map;
+	/**
+	 * Az aktualis jatek
+	 */
 	private Game game;
 	
 	public Graphics(Game g) {
@@ -15,7 +24,7 @@ public class Graphics {
 		map=g.getwh();
 	}	
 	/**
-	Kezdő menü
+	A kezdeti menu megjelenitese
 	 */
 	public void showMenu() {
 		JFrame menu=new JFrame();
@@ -56,7 +65,7 @@ public class Graphics {
 	}
 
 	/**
-	 * A help gomb megnyomására láthatjuk a leírást
+	 * A help gomb megnyomasara hivodo listener
 	 */
 	private class HelpListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
@@ -91,13 +100,19 @@ public class Graphics {
 			help.pack();
 		}
 	}
-
+	/**
+	 * A jatek veget kezelo fuggveny
+	 * @param e A kivalto esemeny
+	 */
 	private void close(ActionEvent e){
 		JFrame jf= (JFrame) SwingUtilities.getRoot((Component)e.getSource());
 		jf.setEnabled(false);
 		endFrame();
 	}
-	
+	/**
+	 * A menu new game gomjanak actionlistenere
+	 *
+	 */
 	private class NewGameListener implements ActionListener{
 		public void actionPerformed(ActionEvent e) {
 			JFrame jf= (JFrame) SwingUtilities.getRoot((Component)e.getSource());
@@ -106,6 +121,10 @@ public class Graphics {
 		}
 	}
 	
+	/**
+	 * Az exit gomb listenere
+	 *
+	 */
 	private class CloseListener implements ActionListener{	  
 	    public void actionPerformed(ActionEvent e) {	        
 	       System.exit(0);
@@ -113,8 +132,7 @@ public class Graphics {
 	}
 
 	/**
-	 * irány gombok lenyomására hívodik a következő 4 listener, lépésenként másik játékos jön
-	 * ellenőrzi hogy van e még láda, etc.
+	 Az iranygombok megnyomasakar kivaltodo ActionListenerek
 	 */
 	private class MoveUpActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
@@ -179,7 +197,7 @@ public class Graphics {
     }
 
 	/**
-	 * munkásváltás
+	 * a munkasok valtasa
 	 */
 	private class SwitchActionListener implements ActionListener{
 	    public void actionPerformed(ActionEvent e){
@@ -189,7 +207,7 @@ public class Graphics {
     }
 
 	/**
-	 * játékos váltás
+	 * a jatekosok valtasa
 	 */
 	private class CheckActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
@@ -199,7 +217,7 @@ public class Graphics {
 	}
 
 	/**
-	 * zárókép
+	 * A zaro ablak megjelenitese
 	 */
 	public void endFrame() {
 		JFrame end=new JFrame();
@@ -259,7 +277,7 @@ public class Graphics {
 	}
 
 	/**
-	 * maga a játék , new game után
+	 * A fo ablak osszepakolasat vegzo fuggveny
 	 */
 	public void loadMap() {
 		JFrame mainFrame = new JFrame();
@@ -308,12 +326,7 @@ public class Graphics {
 		mainFrame.setVisible(true);
 		mainFrame.pack();
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	}
+	}	
 	
 	
-	
-	WareHouse readMap() {
-		return null;
-	}
-
 }

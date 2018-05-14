@@ -7,9 +7,13 @@ import java.awt.Color;
  */
 public class Worker implements Thing
 {
-	private Field current;			//A mezo amin a munkas epp all
-    private int power;				//A munkas ereje
-	private char character;		//A munkast reprezentalo karakter
+	/** A mezo amin a munkas all*/
+	private Field current;
+	/** A munkas ereje*/
+    private int power;				
+    /** A jatekost reprezentalo karakter*/
+	private char character;		
+	/** A munkas pontjai*/
 	private int points;
 
 	/**
@@ -21,18 +25,25 @@ public class Worker implements Thing
 		power=4;
 		points=0;
 	}
-
+	
+	/**
+	 * Noveli a munkas pontszamat
+	 */
 	public void addPoints(int p){
 		points+=p;
 	}
 	public int getPoints(){
 		return points;
 	}
-
+	/**
+	 * Elveszi a kivalasztott munkas statuszt
+	 */
 	public void unselect() {
 		current.setText("W");
 	}
-	
+	/**
+	 * Kivalasztotta teszi az adott munkast
+	 */
 	public void select() {
 		if(current!=null) current.setText("Ws");
 	}
@@ -86,9 +97,12 @@ public class Worker implements Thing
     	f.Accept(this, d);
     }
     
+    /**
+     * Valtoztatja amunkas erejet
+     * @param i a valtoztatas merteke
+     */
     public void setPower(int i) {
     	power+=i;
-    	//System.out.println(power);
     }
 
 	/**

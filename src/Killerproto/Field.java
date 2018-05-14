@@ -9,25 +9,41 @@ import javax.swing.*;
  */
 public class Field extends JButton{
 
-	protected Map<Direction,Field> neighbors;			//Az adott mezo szomszedjait tarolja
-	protected Thing currentThing;						//Az adott mezon levo
-	protected char character;						//A mezot reprezentalo karakter
-	protected boolean target;
-	protected static int crateCount=0;
 	/**
-	 * A mezo konstruktora
+	 * 
 	 */
-
+	private static final long serialVersionUID = 1L;
+	/**A mezo szomszedeai*/
+	protected Map<Direction,Field> neighbors;	
+	/**A mezon allo thing*/
+	protected Thing currentThing;
+	/**A mezot leiro karakter*/
+	protected char character;
+	/**a mezo celmezo-e?*/
+	protected boolean target;
+	/**A palyan levo ladak szama*/
+	protected static int crateCount=0;
+	
+	/**
+	 * Beallitja a mezot target fieldnek
+	 */
 	public void setTarget(){
 		target=true;
 		this.setBackground(Color.MAGENTA);
 	}
 
+	/**
+	 * Megadja hogy itt van-e az aktualis munkas
+	 * @return
+	 */
 	public boolean actualHere() {
 		if(Game.GetActualWorker()==null) return false;
 		if(Game.GetActualWorker()==currentThing) return true;
 		else return false;
 	}
+	/**
+	 * A mezo konstruktora
+	 */
 	public Field() {
 		neighbors=new HashMap<Direction,Field>();
 		this.setBackground(Color.cyan);
@@ -37,7 +53,9 @@ public class Field extends JButton{
 	public void SetCurrent(Field f) {
 		this.setBackground(Color.CYAN);
 	}
-
+	/**
+	 * Noveli a ladak szamat
+	 */
 	public void addCrate(){crateCount++;}
 
 	public static int getCrateCount(){return crateCount;}

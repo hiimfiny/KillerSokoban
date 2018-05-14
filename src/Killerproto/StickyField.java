@@ -7,6 +7,11 @@ import java.awt.*;
  */
 public class StickyField extends Field
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public StickyField(){
 		SetCurrent(this);
 	}

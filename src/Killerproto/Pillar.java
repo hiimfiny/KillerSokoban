@@ -7,8 +7,10 @@ import java.awt.*;
  */
 public class Pillar implements Thing
 {
-	private Field current;				//A mezo amin az oszlop van
-	private char character;				//Az oszlopot reprezentalo karakter
+	/**A mezo amin az oszlop van*/
+	private Field current;			
+	/**Az oszlopot leiro karakter*/
+	private char character;				
 
 	/**
 	 * Az oszlop kontruktora

@@ -6,8 +6,14 @@ import java.awt.*;
  * A titkos lyukat reprezentalo osztaly
  */
 public class SecretHole extends Hole {
-    private boolean state;              //A lyuk allapota
-    private Switch sw;                  //A lyukhoz tartozo kapcsolo
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**A lyuk allapota*/
+	private boolean state;      
+	/**A lyukhoz tatozo kapcsolo*/
+    private Switch sw;                 
 
     /**
      * Beallitja a lyukhoz tartozo kapcsolot
@@ -22,6 +28,10 @@ public class SecretHole extends Hole {
     	this.setBackground(Color.cyan);
     }
     
+    /**
+     * Megmondja, hogy az aktualis munkas ittvan-e
+     * 
+     */
     public boolean actualHere() {
 		if(state) return false;
 		if(Game.GetActualWorker()==null) return false;

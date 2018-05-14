@@ -36,7 +36,6 @@ public class Game
 	 */
 	public static void SetActualWorker(Worker w) {
 		if (w != null) {
-			if (actualWorker != null) actualWorker.unselect();
 			actualWorker = w;
 			actualWorker.select();
 		}
@@ -54,9 +53,11 @@ public class Game
 	public void switchWorkers(){
 		index=players.get(player).workerIndex(actualWorker);
 		if(index==1){
+			actualWorker.unselect();
 			SetActualWorker(players.get(player).SelectWorker(0));
 		}
 		else if(players.get(player).size()>1) {
+			actualWorker.unselect();
             SetActualWorker(players.get(player).SelectWorker(1));
 		}
 		
@@ -71,8 +72,10 @@ public class Game
 		}
 	}
 
-	public void kill(){
-		players.get(player).kill();
+	public boolean kill(){
+		boolean p1= players.get(0).kill();
+		boolean p2= players.get(1).kill();
+		return (p1||p2);
 	}
 
 
@@ -90,6 +93,8 @@ public class Game
     	warehouse.neighbors();
     	graphic=new Graphics(this);
     	graphic.loadMap();
+    	SetActualWorker(workers.get(0));
+    	warehouse.searchWorker();
     	    	
     }
     public void Play(){ }
@@ -98,8 +103,10 @@ public class Game
     	
     	if(player==1) player=0;
     	else player=1;
+    	System.out.println(players.get(player).size());
+    	if(players.get(player).size()>0) {
     	SetActualWorker(players.get(player).SelectWorker(0));
-    	warehouse.searchWorker();
+    	warehouse.searchWorker();}
     }
 
 	public void menu() {

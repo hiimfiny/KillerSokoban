@@ -159,7 +159,6 @@ public class Field extends JButton{
     		if(this.target) {
     			Remove(c);
     			crateCount--;
-    			System.out.println(crateCount);
 				Game.GetActualWorker().addPoints(20);
         	}
     	}

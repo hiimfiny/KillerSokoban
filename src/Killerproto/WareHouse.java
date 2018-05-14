@@ -82,7 +82,6 @@ public class WareHouse extends JFrame {
 							case "8":
 								Worker w=new Worker('1');
 								workers.add(w);
-								Game.SetActualWorker(w);
 								map[i - size][j].setCurrentThing(w);
 								x=i-size;
 								y=j;

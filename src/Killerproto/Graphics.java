@@ -113,9 +113,9 @@ public class Graphics {
 			Game.GetActualWorker().Enters(map.map[map.x-1][map.y],Direction.Up);
 			
 			map.searchWorker();
-			game.kill();
+			if(!game.kill())Game.GetActualWorker().unselect();
 			if(Game.killed){close(e);}
-			Game.GetActualWorker().unselect();
+			
 			game.NextPlayer();
 			Game.GetActualWorker().select();
 			if(Field.getCrateCount()==0){close(e); }
@@ -128,9 +128,8 @@ public class Graphics {
         	if(map.x!=-1) {
             Game.GetActualWorker().Enters(map.map[map.x+1][map.y],Direction.Down);
             map.searchWorker();
-				game.kill();
+            if(!game.kill())Game.GetActualWorker().unselect();
 				if(Game.killed){close(e);}
-            Game.GetActualWorker().unselect();
             game.NextPlayer();
             Game.GetActualWorker().select();
 				if(Field.getCrateCount()==0){close(e); }
@@ -144,9 +143,8 @@ public class Graphics {
         	if(map.x!=-1) {
             Game.GetActualWorker().Enters(map.map[map.x][map.y-1],Direction.Left);
             map.searchWorker();
-				game.kill();
+            if(!game.kill())Game.GetActualWorker().unselect();
 				if(Game.killed){close(e);}
-            Game.GetActualWorker().unselect();
             game.NextPlayer();
             Game.GetActualWorker().select();
 				if(Field.getCrateCount()==0){close(e); }
@@ -160,9 +158,8 @@ public class Graphics {
         	if(map.x!=-1) {
             Game.GetActualWorker().Enters(map.map[map.x][map.y+1],Direction.Right);
             map.searchWorker();
-				game.kill();
+            if(!game.kill())Game.GetActualWorker().unselect();
 				if(Game.killed){close(e);}
-            Game.GetActualWorker().unselect();
             game.NextPlayer();
             Game.GetActualWorker().select();
 				if(Field.getCrateCount()==0){close(e); }
@@ -179,6 +176,7 @@ public class Graphics {
     }
     private class CheckActionListener implements ActionListener{
 		public void actionPerformed(ActionEvent e){
+			Game.GetActualWorker().unselect();
 			game.NextPlayer();
 		}
 	}

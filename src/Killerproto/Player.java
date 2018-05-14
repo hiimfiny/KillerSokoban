@@ -32,15 +32,21 @@ public class Player
     	return workers.size();
     }
     
-    public void kill() {
-        for(Worker w:workers){
-            if(w.getCurrentField().getThing()==null||w.getCurrentField().getThing().getChar()=='c'){
-                if(workers.size()==1){Game.killed=true;}
+    
+    public boolean kill() {
+        for(Worker w:workers){    
+        	System.out.println(workers);        	
+            if(w.getCurrentField().getThing()==null||w.getCurrentField().getThing().getChar()=='c'||w==null){
+            	
+                if(workers.size()==1 ||workers.contains(null)){Game.killed=true;}
+                
                 points+=w.getPoints();
                 workers.remove(w);
-                return;
+                System.out.println(workers.size());
+                return true;
             }
         }
+        return false;
     }
 
 

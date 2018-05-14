@@ -129,7 +129,6 @@ public class Game
     	
     	if(player==1) player=0;
     	else player=1;
-    	System.out.println(players.get(player).size());
     	if(players.get(player).size()>0) {
     	SetActualWorker(players.get(player).SelectWorker(0));
     	warehouse.searchWorker();}

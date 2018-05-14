@@ -167,7 +167,7 @@ public class WareHouse extends JFrame {
 					sw.setSecret(secret);
 				}
 		} catch (IOException e) {
-			System.out.println("rip");
+			System.out.println("Nem talalhato a Map.txt");
 		}
 	}
 

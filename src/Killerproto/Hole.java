@@ -50,6 +50,8 @@ public class Hole extends Field {
         this.setText("");
         w =null;
     }
+
+
     public void Remove(Thing t){
         if(t.getChar()=='c'){crateCount--; }
         this.setBackground(Color.BLACK);

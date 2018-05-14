@@ -131,11 +131,7 @@ public class Game
 		end=false;
 				
 		}
-	/**
-	 * A tesztpalyak betolteset vegzi el
-	 * @param wh A raktar ami a beolvasast es a kirajzolast vegzi
-	 */
-	
+
 	
 	}
 
